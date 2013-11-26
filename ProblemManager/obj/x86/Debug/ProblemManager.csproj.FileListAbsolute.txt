@@ -13,3 +13,17 @@ C:\Users\Patryk\documents\visual studio 2010\Projects\BO\ProblemManager\obj\x86\
 C:\Users\Patryk\documents\visual studio 2010\Projects\BO\ProblemManager\obj\x86\Debug\ProblemManager.exe
 C:\Users\Patryk\documents\visual studio 2010\Projects\BO\ProblemManager\obj\x86\Debug\ProblemManager.pdb
 C:\Users\Patryk\Documents\Visual Studio 2010\Projects\BO\ProblemManager\bin\Debug\DataGrid2DLibrary.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\Controls\Matrix.baml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\MainWindow.baml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\Controls\Matrix.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\App.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\ProblemManager_MarkupCompile.cache
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\ProblemManager.g.resources
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\ProblemManager.Properties.Resources.resources
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\ProblemManager.csproj.GenerateResource.Cache
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\ProblemManager.exe
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\bin\Debug\ProblemManager.exe
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\bin\Debug\ProblemManager.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\bin\Debug\DataGrid2DLibrary.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\ProblemManager\obj\x86\Debug\ProblemManager.pdb

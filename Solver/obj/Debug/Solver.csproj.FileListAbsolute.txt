@@ -1,0 +1,5 @@
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\Solver\bin\Debug\Solver.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\Solver\bin\Debug\Solver.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\Solver\obj\Debug\Solver.csprojResolveAssemblyReference.cache
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\Solver\obj\Debug\Solver.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\Solver\obj\Debug\Solver.pdb

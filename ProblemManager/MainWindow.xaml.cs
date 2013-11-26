@@ -30,8 +30,6 @@ namespace ProblemManager
             ItemsList.Add(new List<int> { 1, 2, 3 });
             ItemsList.Add(new List<int> { 1, 2, 3 });
             ItemsList.Add(new List<int> { 1, 2, 3 });
-            ItemsList.Add(new List<int> { 1, 2, 3 });
-            ItemsList.Add(new List<int> { 1, 2, 3 });
 
             InitializeComponent();
 

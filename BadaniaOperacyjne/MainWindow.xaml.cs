@@ -26,7 +26,7 @@ namespace BadaniaOperacyjne
 
         private void btnSolveProblem_Click(object sender, RoutedEventArgs e)
         {
-            ProblemManager.DataType.Input problemInput = ProblemManager.ProblemManager.GetProblem();
+            //ProblemManager.DataType.Input problemInput = ProblemManager.ProblemManager.GetProblem();
 
         }
     }

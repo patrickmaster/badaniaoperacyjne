@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProblemManager.DataType
 {
-    class Input
+    public class Input
     {
     }
 }
