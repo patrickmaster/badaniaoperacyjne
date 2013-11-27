@@ -1,0 +1,3 @@
+badaniaoperacyjne
+=================
+projekt zaliczeniowy
