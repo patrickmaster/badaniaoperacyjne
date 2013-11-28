@@ -22,61 +22,84 @@ namespace BadaniaOperacyjne
     /// </summary>
     public partial class Graph : Window
     {
-        public Graph()
+        private static Graph current = null;
+        public static Graph Current
         {
-            InitializeComponent();
+            get
+            {
+                if (current == null)
+                {
+                    current = new Graph();
+                }
+                return current;
+            }
+            private set { }
         }
 
-        public Graph(SimpleData source)
+        private Graph()
         {
             InitializeComponent();
-
+            Show();
+        }
+        
+        private EnumerableDataSource<double> GetArguments(SimpleData source)
+        {
             EnumerableDataSource<double> argumentsEnumerable = new EnumerableDataSource<double>(source.HorizontalValues);
             argumentsEnumerable.SetXMapping(x => x);
 
-            EnumerableDataSource<double> valuesEnumerable = new EnumerableDataSource<double>(source.VerticalValues);
-            valuesEnumerable.SetYMapping(y => y);
-
-            //CompositeDataSource argumentsComposite = new CompositeDataSource(argumentsEnumerable);
-            CompositeDataSource valuesComposite = new CompositeDataSource(argumentsEnumerable, valuesEnumerable);
-
-            horizontalAxisTitle.Content = source.HorizontalAxisTitle;
-            verticalAxisTitle.Content = source.VerticalAxisTitle;
-            graphTitle.Content = source.Title;
-
-            plotter.AddLineGraph(valuesComposite,
-              new Pen(Brushes.Transparent, 1),
-              new CirclePointMarker { Size = 5, Fill = Brushes.Blue },
-              new PenDescription(string.IsNullOrWhiteSpace(source.VerticalAxisTitle) ? "Values" : source.VerticalAxisTitle));
-            plotter.Viewport.FitToView();
+            return argumentsEnumerable;
         }
 
-        public Graph(MultipleValues source)
+        private void DescribeGraph(SimpleData source)
         {
-            InitializeComponent();
-
             horizontalAxisTitle.Content = source.HorizontalAxisTitle;
             verticalAxisTitle.Content = source.VerticalAxisTitle;
             graphTitle.Content = source.Title;
+        }
 
-            EnumerableDataSource<double> argumentsEnumberable = new EnumerableDataSource<double>(source.HorizontalValues);
-            argumentsEnumberable.SetXMapping(x => x);
+        private void PlotValueLine(EnumerableDataSource<double> argumentsEnumerable, ValueLine value)
+        {
+            EnumerableDataSource<double> valuesEnumerable = new EnumerableDataSource<double>(value.Values);
+            valuesEnumerable.SetYMapping(y => y);
+            CompositeDataSource valuesComposite = new CompositeDataSource(argumentsEnumerable, valuesEnumerable);
+
+            plotter.AddLineGraph(
+                valuesComposite,
+                new Pen(Brushes.Transparent, 1),
+                new CirclePointMarker { Size = value.Size, Fill = value.Brush },
+                new PenDescription(value.Title)
+                );
+        }
+
+        public void Plot(MultipleValues source)
+        {
+            DescribeGraph(source);
+
+            EnumerableDataSource<double> argumentsEnumerable = GetArguments(source);
 
             foreach (ValueLine value in source.VerticalValues)
             {
-                EnumerableDataSource<double> valuesEnumerable = new EnumerableDataSource<double>(value.Values);
-                valuesEnumerable.SetYMapping(y => y);
-                CompositeDataSource valuesComposite = new CompositeDataSource(argumentsEnumberable, valuesEnumerable);
-
-                plotter.AddLineGraph(
-                    valuesComposite,
-                    new Pen(Brushes.Transparent, 1),
-                    new CirclePointMarker { Size = value.Size, Fill = value.Brush },
-                    new PenDescription(value.Title)
-                    );
+                PlotValueLine(argumentsEnumerable, value);
             }
 
             plotter.Viewport.FitToView();
+        }
+
+        public void Plot(SimpleData source)
+        {
+            DescribeGraph(source);
+
+            EnumerableDataSource<double> arguments = GetArguments(source);
+
+            PlotValueLine(arguments, source.VerticalValues);
+
+            plotter.Viewport.FitToView();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            current = null;
+            base.OnClosed(e);
         }
     }
 }

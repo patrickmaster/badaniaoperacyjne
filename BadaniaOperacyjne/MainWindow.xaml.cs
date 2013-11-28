@@ -27,7 +27,22 @@ namespace BadaniaOperacyjne
         private void btnSolveProblem_Click(object sender, RoutedEventArgs e)
         {
             //ProblemManager.DataType.Input problemInput = ProblemManager.ProblemManager.GetProblem();
+            ProblemManager.Current.Show();
+        }
 
+        private void btnTest_Click(object sender, RoutedEventArgs e)
+        {
+            DataType.Graph.MultipleValues graphSource = new DataType.Graph.MultipleValues();
+            graphSource.HorizontalAxisTitle = "argi";
+            graphSource.HorizontalValues = new List<double> { 5, 6, 7, 8 };
+            graphSource.Title = "WYKRESIK";
+            graphSource.VerticalAxisTitle = "wartości";
+            graphSource.VerticalValues.Add(new DataType.Graph.ValueLine
+            {
+                Values = new List<double> { 2, 2.5, 7, 5 }
+            });
+
+            Graph.Current.Plot(graphSource);
         }
     }
 }

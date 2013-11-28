@@ -7,6 +7,12 @@ namespace BadaniaOperacyjne.DataType.Graph
 {
     public class SimpleData
     {
+        public SimpleData()
+        {
+            HorizontalValues = new List<double>();
+            VerticalValues = new ValueLine();
+        }
+
         /// <summary>
         /// Opis dla osi poziomej wykresu
         /// </summary>
@@ -25,11 +31,11 @@ namespace BadaniaOperacyjne.DataType.Graph
         /// <summary>
         /// Wartości osi poziomej
         /// </summary>
-        public IEnumerable<double> HorizontalValues { get; set; }
+        public List<double> HorizontalValues { get; set; }
 
         /// <summary>
         /// Wartości osi pionowej
         /// </summary>
-        public IEnumerable<double> VerticalValues { get; set; }
+        public ValueLine VerticalValues { get; set; }
     }
 }

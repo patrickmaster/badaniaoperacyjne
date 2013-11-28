@@ -7,7 +7,11 @@ namespace BadaniaOperacyjne.DataType.Graph
 {
     public class MultipleValues : SimpleData
     {
-        public MultipleValues() { }
+        public MultipleValues()
+            : base()
+        {
+            VerticalValues = new List<ValueLine>();
+        }
 
         /// <summary>
         /// Lista wykresów wartości
