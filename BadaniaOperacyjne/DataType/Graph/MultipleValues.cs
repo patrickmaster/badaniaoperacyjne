@@ -10,12 +10,12 @@ namespace BadaniaOperacyjne.DataType.Graph
         public MultipleValues()
             : base()
         {
-            VerticalValues = new List<ValueLine>();
+            Series = new List<ValueLine>();
         }
 
         /// <summary>
         /// Lista wykresów wartości
         /// </summary>
-        public new List<ValueLine> VerticalValues { get; set; }
+        public new List<ValueLine> Series { get; set; }
     }
 }

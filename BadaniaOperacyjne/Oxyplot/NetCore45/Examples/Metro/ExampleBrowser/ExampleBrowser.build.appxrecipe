@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>BUILD-PC</Machine>
+    <WindowsUser>SYSTEM</WindowsUser>
+    <SolutionConfiguration>Release|x86</SolutionConfiguration>
+    <PackageArchitecture>x86</PackageArchitecture>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\NetCore45\Examples\Metro\ExampleBrowser\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\NetCore45\Examples\Metro\ExampleBrowser\ExampleBrowser.exe">
+      <PackagePath>ExampleBrowser.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\NetCore45\Examples\Metro\ExampleBrowser\ExampleBrowser.pdb">
+      <PackagePath>ExampleBrowser.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\NetCore45\OxyPlot.Metro.pdb">
+      <PackagePath>OxyPlot.Metro.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Source\Examples\ExampleLibrary\bin\PCL\Release\ExampleLibrary.dll">
+      <PackagePath>ExampleLibrary.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\PCL\OxyPlot.dll">
+      <PackagePath>OxyPlot.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\NetCore45\OxyPlot.Metro.dll">
+      <PackagePath>OxyPlot.Metro.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\PCL\OxyPlot.pdb">
+      <PackagePath>OxyPlot.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Source\Examples\ExampleLibrary\bin\PCL\Release\ExampleLibrary.pdb">
+      <PackagePath>ExampleLibrary.pdb</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Source\Examples\Metro\ExampleBrowser\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Source\Examples\Metro\ExampleBrowser\Assets\SmallLogo.png">
+      <PackagePath>Assets\SmallLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Source\Examples\Metro\ExampleBrowser\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Source\Examples\Metro\ExampleBrowser\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\NetCore45\Examples\Metro\ExampleBrowser\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\NetCore45\Examples\Metro\ExampleBrowser\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\NetCore45\Examples\Metro\ExampleBrowser\MainPage.xaml">
+      <PackagePath>MainPage.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\NetCore45\Themes\Generic.xaml">
+      <PackagePath>OxyPlot.Metro\Themes\Generic.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\TeamCity\buildAgent\work\f48330714bade418\Output\NetCore45\Examples\Metro\ExampleBrowser\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

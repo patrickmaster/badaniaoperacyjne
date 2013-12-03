@@ -18,7 +18,7 @@ namespace BadaniaOperacyjne.DataType.Graph
         /// <summary>
         /// Lista wartości do umieszczenia na osi Y
         /// </summary>
-        public IEnumerable<double> Values { get; set; }
+        public List<double> Values { get; set; }
 
         /// <summary>
         /// Opis wykresu

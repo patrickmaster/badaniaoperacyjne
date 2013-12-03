@@ -1,0 +1,27 @@
+﻿<Window x:Class="BadaniaOperacyjne.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="253" Width="525" ResizeMode="CanMinimize">
+    <Grid Margin="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Otwórz menedżera zagadnień, by utworzyć nowy problem komiwojażera lub wczytać wcześniej utworzony problem" TextWrapping="Wrap" Margin="10" VerticalAlignment="Center"></TextBlock>
+            <Button Grid.Row="0" Grid.Column="1" Content="Rozwiąż problem" Height="30" Margin="10" Click="btnSolveProblem_Click"></Button>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Wybierz spośród zapisanych rozwiązań problemów" TextWrapping="Wrap" Margin="10" VerticalAlignment="Center"></TextBlock>
+            <Button Grid.Row="1" Grid.Column="1" Content="Wczytaj rozwiązanie" Height="30" Margin="10"></Button>
+        
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Opcja 1" Margin="10" VerticalAlignment="Center"></TextBlock>
+            <Button Grid.Row="2" Grid.Column="1" Content="Opcja1" Height="30" Margin="10" Click="btnTest_Click"></Button>
+        
+        </Grid>
+    </Grid>
+</Window>

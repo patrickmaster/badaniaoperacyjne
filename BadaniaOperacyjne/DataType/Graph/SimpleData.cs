@@ -9,8 +9,7 @@ namespace BadaniaOperacyjne.DataType.Graph
     {
         public SimpleData()
         {
-            HorizontalValues = new List<double>();
-            VerticalValues = new ValueLine();
+            Series = new Series();
         }
 
         /// <summary>
@@ -29,13 +28,8 @@ namespace BadaniaOperacyjne.DataType.Graph
         public string Title { get; set; }
 
         /// <summary>
-        /// Wartości osi poziomej
-        /// </summary>
-        public List<double> HorizontalValues { get; set; }
-
-        /// <summary>
         /// Wartości osi pionowej
         /// </summary>
-        public ValueLine VerticalValues { get; set; }
+        public Series Series { get; set; }
     }
 }
