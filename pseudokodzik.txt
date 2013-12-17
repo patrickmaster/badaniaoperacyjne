@@ -1,0 +1,27 @@
+double temperatura = mnoznik*n;  //n - ilosc miast, mnoznik - wprowadza uzytkowanik - duza wartosc np. 1000
+double temperatura_koncowa = t_k;  //jakas bardzo mala wartosc - wprowadza uzytkowanik (np. 0.001)
+double roznica = 0;
+double wspolczynniik_chlodzenia = w_ch;  // wprowadza uzytkownik - wartosc bliska 1, np. 0.99
+double obecny_koszt;
+double nowy_koszt;
+
+//rozwiazanie poczatkowe - losowe - tablica w ktorej jest kolejnosc miast
+int [n] rozwiazanie_obecne = losuj_rozwiazanie_poczatkowe(n);
+int ilosc_iteracji = ??;    // na poczatku malo, nastepnie w kolejnych blokach dla danej temperatury nalezy zwiekszac
+
+
+
+while( temperatura > temperatura_koncowa)
+{
+    for(int i = 0; i < ilosc_iteracji; i++)
+    {
+        wyznacz_nowe_rozwiazanie(obecne_rozwiazanie);
+        roznica = nowy_koszt - obecny_koszt;
+        if (roznica < 0) || ((roznica > 0) && (Math.exp((-1)*roznica/temperatura)) > losuj_liczbe(0,1)))
+        { 
+            obecny_koszt = nowy_koszt;
+        }
+    }
+    temperatura = temperatura*wspolczynnik_chlodzenia;
+    ilosc_iteracji = ilosc_iteracji * 2
+}

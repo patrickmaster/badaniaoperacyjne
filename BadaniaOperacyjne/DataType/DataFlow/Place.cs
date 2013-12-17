@@ -5,7 +5,13 @@ using System.Text;
 
 namespace BadaniaOperacyjne.DataType.DataFlow
 {
-    public abstract class Place
+    public class Place
     {
+        public Place(int number)
+        {
+            Number = number;
+        }
+
+        public int Number { get; private set; }
     }
 }

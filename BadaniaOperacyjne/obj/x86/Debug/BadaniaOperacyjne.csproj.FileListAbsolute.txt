@@ -17,3 +17,41 @@ c:\users\patryk\documents\visual studio 2010\Projects\BadaniaOperacyjne\BadaniaO
 c:\users\patryk\documents\visual studio 2010\Projects\BadaniaOperacyjne\BadaniaOperacyjne\bin\Debug\DataGrid2DLibrary.dll
 c:\users\patryk\documents\visual studio 2010\Projects\BadaniaOperacyjne\BadaniaOperacyjne\obj\x86\Debug\ProblemManager.baml
 c:\users\patryk\documents\visual studio 2010\Projects\BadaniaOperacyjne\BadaniaOperacyjne\obj\x86\Debug\ProblemManager.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\BadaniaOperacyjne.exe.manifest
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\BadaniaOperacyjne.application
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\BadaniaOperacyjne.exe
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\BadaniaOperacyjne.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\DataGrid2DLibrary.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\DynamicDataDisplay.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\OxyPlot.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\OxyPlot.Wpf.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\DynamicDataDisplay.xml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\OxyPlot.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\OxyPlot.xml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\OxyPlot.Wpf.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\OxyPlot.Wpf.xml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\bin\Debug\ru-ru\DynamicDataDisplay.resources.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\BadaniaOperacyjne.csprojResolveAssemblyReference.cache
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\Graph.baml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\Graph2.baml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\MainWindow.baml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\Graph.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\Graph2.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\MainWindow.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\App.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\BadaniaOperacyjne_MarkupCompile.cache
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\BadaniaOperacyjne.g.resources
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\BadaniaOperacyjne.Properties.Resources.resources
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\BadaniaOperacyjne.csproj.GenerateResource.Cache
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\BadaniaOperacyjne.exe.manifest
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\BadaniaOperacyjne.application
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\BadaniaOperacyjne.exe
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\BadaniaOperacyjne.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Controls\Matrix.baml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Controls\Matrix.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\BadaniaOperacyjne_MarkupCompile.lref
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\ProblemManager\ProblemManager.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\ProblemManager\ProblemManager.baml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\ProblemManager\PreConfiguration.baml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\ProblemManager\PreConfiguration.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
