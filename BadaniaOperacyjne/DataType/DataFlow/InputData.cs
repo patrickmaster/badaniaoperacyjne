@@ -9,10 +9,10 @@ namespace BadaniaOperacyjne.DataType.DataFlow
     {
         public InputData()
         {
-            Places = new List<Place>();
+            Places = new List<List<double>>();
         }
 
-        public List<Place> Places { get; set; }
+        public List<List<double>> Places { get; set; }
         /// <summary>
         /// Liczba miejsc (dostarczenia paczek i stacji benzynowych)
         /// </summary>

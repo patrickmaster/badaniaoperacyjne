@@ -129,8 +129,6 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
 
         public LocalViewModel VM { get; private set; }
 
-        public InputData Input = null;
-
         private int numPlaces;
 
         public ProblemManager(int size)
@@ -145,9 +143,14 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
             //dataGrid.DataContext = VM;
         }
 
-        private InputData ToInputData()
+        public InputData ToInputData()
         {
             InputData result = new InputData();
+
+            foreach (List<double> column in VM.ItemsList)
+            {
+                result.Places.Add(column);
+            }
 
             result.NumPlaces = numPlaces;
             result.StartingTemperature = VM.StartingTemperature;
@@ -184,7 +187,6 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
             msg += "Starting temp: " + VM.StartingTemperature + Environment.NewLine;
             msg += "Ending temp: " + VM.EndingTemperature + Environment.NewLine;
             MessageBox.Show(msg);
-            return;
             DialogResult = true;
             Close();
         }

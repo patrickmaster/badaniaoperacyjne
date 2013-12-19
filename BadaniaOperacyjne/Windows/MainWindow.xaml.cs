@@ -64,13 +64,17 @@ namespace BadaniaOperacyjne.Windows
             if (ShowDialogWindow(problemManager) == true)
             {
                 // bleble
-                input = problemManager.Input;
+                input = problemManager.ToInputData();
             }
             else
             {
                 // Handle errors
                 return;
             }
+
+            Solver.ISolver solver = new Solver.MockSolver();
+
+            OutputData output = solver.Solve(input);
 
 
         }

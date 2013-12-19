@@ -55,3 +55,5 @@ C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Deb
 C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\ProblemManager\PreConfiguration.baml
 C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\ProblemManager\PreConfiguration.g.cs
 C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\Solution.baml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\obj\x86\Debug\Windows\Solution.g.cs
