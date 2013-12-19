@@ -46,9 +46,11 @@
                 <TextBox Grid.Row="0" Grid.Column="1" Margin="10" Padding="2">
                     <TextBox.Text>
                         <Binding Path="StartingTemperature">
+                            <!--
                             <Binding.ValidationRules>
                                 <validation:RangeRule Minimum="0" Maximum="100"/>
                             </Binding.ValidationRules>
+                            -->
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -57,9 +59,11 @@
                 <TextBox Grid.Row="1" Grid.Column="1" Margin="10" Padding="2">
                     <TextBox.Text>
                         <Binding Path="EndingTemperature">
+                            <!--
                             <Binding.ValidationRules>
                                 <validation:RangeRule Minimum="0" Maximum="100"/>
                             </Binding.ValidationRules>
+                            -->
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -68,9 +72,11 @@
                 <TextBox Grid.Row="2" Grid.Column="1" Margin="10" Padding="2">
                     <TextBox.Text>
                         <Binding Path="CoolingCoefficient">
+                            <!--
                             <Binding.ValidationRules>
                                 <validation:RangeRule Minimum="0" Maximum="1" Exclusive="True"/>
                             </Binding.ValidationRules>
+                            -->
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
@@ -79,9 +85,11 @@
                 <TextBox Grid.Row="3" Grid.Column="1" Margin="10" Padding="2">
                     <TextBox.Text>
                         <Binding Path="NumIterations">
+                            <!--
                             <Binding.ValidationRules>
                                 <validation:RangeRule Minimum="100" Maximum="10000"/>
                             </Binding.ValidationRules>
+                            -->
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
