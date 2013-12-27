@@ -47,7 +47,7 @@ namespace BadaniaOperacyjne.ValidationRules
                 value = double.Parse(((string)obj), System.Globalization.CultureInfo.InvariantCulture.NumberFormat);
                 System.Diagnostics.Debug.WriteLine("cool format: " + (string)obj + " -> " + value);
             }
-            catch (Exception e)
+            catch
             {
                 System.Diagnostics.Debug.WriteLine("wrong format: " + (string)obj);
                 return new ValidationResult(false, "Wpisz liczbę");

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BadaniaOperacyjne.exe" size="43520">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BadaniaOperacyjne.exe" size="55808">
       <assemblyIdentity name="BadaniaOperacyjne" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>59rIknguDuoCHmHNcLCdsOot7G0=</dsig:DigestValue>
+        <dsig:DigestValue>U3ntM61t8FSlfpeRovWMklKvauU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -90,26 +90,38 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OxyPlot.dll" size="416256">
-      <assemblyIdentity name="OxyPlot" version="2013.2.135.1" publicKeyToken="638079A8F0BD61E9" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OxyPlot.dll" size="423424">
+      <assemblyIdentity name="OxyPlot" version="2013.2.142.1" publicKeyToken="638079A8F0BD61E9" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>kZAoMOie3g1MVHa4+3UtsPPXSKw=</dsig:DigestValue>
+        <dsig:DigestValue>7S5WM5qBOofyZcRvDAGSl684Yvw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OxyPlot.Wpf.dll" size="130048">
-      <assemblyIdentity name="OxyPlot.Wpf" version="2013.2.135.1" publicKeyToken="75E952BA404CDBB0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OxyPlot.Wpf.dll" size="130560">
+      <assemblyIdentity name="OxyPlot.Wpf" version="2013.2.142.1" publicKeyToken="75E952BA404CDBB0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>uaajps1GWBJbF2qltg10WHDKNWQ=</dsig:DigestValue>
+        <dsig:DigestValue>zoUbTb2XazwbDowBJzvRZCjI+Y4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OxyPlot.Xps.dll" size="12288">
+      <assemblyIdentity name="OxyPlot.Xps" version="2013.2.142.1" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>pszAkmUOBGndEtAbo0RJwmVDK40=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

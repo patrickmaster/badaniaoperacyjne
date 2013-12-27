@@ -11,9 +11,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BadaniaOperacyjne.DataType.DataFlow;
+using BadaniaOperacyjne.DataType;
 using BadaniaOperacyjne.DataType.Graph;
 using System.ComponentModel;
+using BadaniaOperacyjne.Solver;
+using BadaniaOperacyjne.SettingsManager;
 
 namespace BadaniaOperacyjne.Windows
 {
@@ -23,12 +25,17 @@ namespace BadaniaOperacyjne.Windows
     public partial class MainWindow : Window
     {
         protected List<Window> windows;
+        private ISolver solver;
+        private ISettingsManager settingsManager;
 
         public MainWindow()
         {
             windows = new List<Window>();
 
             InitializeComponent();
+
+            solver = new MockSolver();
+            settingsManager = new SettingsManager.SettingsManager();
         }
 
         private bool? ShowDialogWindow(Window window)
@@ -47,14 +54,12 @@ namespace BadaniaOperacyjne.Windows
         {
             ProblemManager.PreConfiguration preConfiguration = new ProblemManager.PreConfiguration();
             int problemSize = 0;
-
             if (ShowDialogWindow(preConfiguration) == true)
             {
                 problemSize = preConfiguration.VM.NumPlaces;
             }
             else
             {
-                // Handle errors
                 return;
             }
 
@@ -72,33 +77,17 @@ namespace BadaniaOperacyjne.Windows
                 return;
             }
 
-            Solver.ISolver solver = new Solver.MockSolver();
+            OutputData output = solver.Solve(input, settingsManager.GetSettings());
 
-            OutputData output = solver.Solve(input);
+            SolutionWindow solutionWindow = new SolutionWindow(output);
 
-
+            ShowDialogWindow(solutionWindow);
         }
 
-        private void btnTest_Click(object sender, RoutedEventArgs e)
+        private void btnSettings_Click(object sender, RoutedEventArgs e)
         {
-            IndependentArguments source = new IndependentArguments { Title = "Wykresik" };
-
-            Series series1 = new Series { Description = "wykresik 1" };
-            double range = 20;
-            for (double x = -range; x < range; x += 0.1)
-            {
-                double y = Math.Sin(x) * Math.Cos(Math.PI/4 + x);
-                series1.Values.Add(new BadaniaOperacyjne.DataType.Graph.Point { X = x, Y = y });
-            }
-
-            source.Series.Add(series1);
-
-            Graph2.Current.Plot(source);
-        }
-
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
-        {
-            base.OnClosing(e);
+            SettingsWindow settingsWindow = new SettingsWindow();
+            ShowDialogWindow(settingsWindow);
         }
     }
 }

@@ -72,13 +72,16 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>DynamicDataDisplay\DynamicDataDisplay.dll</HintPath>
     </Reference>
-    <Reference Include="OxyPlot, Version=2013.2.135.1, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
+    <Reference Include="OxyPlot, Version=2013.2.142.1, Culture=neutral, PublicKeyToken=638079a8f0bd61e9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Oxyplot\NET40\OxyPlot.dll</HintPath>
+      <HintPath>..\packages\OxyPlot.Core.2013.2.142.1\lib\portable-net4+sl4+wp71+win8\OxyPlot.dll</HintPath>
     </Reference>
-    <Reference Include="OxyPlot.Wpf, Version=2013.2.135.1, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL">
+    <Reference Include="OxyPlot.Wpf, Version=2013.2.142.1, Culture=neutral, PublicKeyToken=75e952ba404cdbb0, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>Oxyplot\NET40\OxyPlot.Wpf.dll</HintPath>
+      <HintPath>..\packages\OxyPlot.Wpf.2013.2.142.1\lib\NET40\OxyPlot.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Xps">
+      <HintPath>..\packages\OxyPlot.Wpf.2013.2.142.1\lib\NET40\OxyPlot.Xps.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -99,9 +102,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataType\Iteration.cs" />
+    <Compile Include="DataType\Settings.cs" />
+    <Compile Include="Parser\Parser.cs" />
+    <Compile Include="SettingsManager\ISettingsManager.cs" />
+    <Compile Include="SettingsManager\SettingsManager.cs" />
     <Compile Include="Utilities\Validation.cs" />
-    <Compile Include="Windows\Solution.xaml.cs">
-      <DependentUpon>Solution.xaml</DependentUpon>
+    <Compile Include="Windows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\SolutionWindow.xaml.cs">
+      <DependentUpon>SolutionWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\Matrix.xaml">
       <SubType>Designer</SubType>
@@ -127,16 +138,15 @@
     <Compile Include="Controls\Matrix.xaml.cs">
       <DependentUpon>Matrix.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataType\DataFlow\Place.cs" />
-    <Compile Include="DataType\DataFlow\Solution.cs" />
+    <Compile Include="DataType\Solution.cs" />
     <Compile Include="DataType\Graph\IndependentArguments.cs" />
     <Compile Include="DataType\Graph\MultipleValues.cs" />
     <Compile Include="DataType\Graph\Point.cs" />
     <Compile Include="DataType\Graph\Series.cs" />
     <Compile Include="DataType\Graph\SimpleData.cs" />
     <Compile Include="DataType\Graph\ValueLine.cs" />
-    <Compile Include="DataType\DataFlow\InputData.cs" />
-    <Compile Include="DataType\DataFlow\OutputData.cs" />
+    <Compile Include="DataType\InputData.cs" />
+    <Compile Include="DataType\OutputData.cs" />
     <Compile Include="Parser\IParser.cs" />
     <Compile Include="Solver\ISolver.cs" />
     <Compile Include="Solver\MockSolver.cs" />
@@ -159,7 +169,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\Solution.xaml">
+    <Page Include="Windows\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SolutionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,6 +203,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="BadaniaOperacyjne_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

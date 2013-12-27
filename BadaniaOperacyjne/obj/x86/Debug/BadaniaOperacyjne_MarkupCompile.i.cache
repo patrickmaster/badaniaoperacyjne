@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne\App.xaml
-7-281624026
+8-357678824
 
-281885995705
-161235337869
-Controls\Matrix.xaml;Windows\Graph.xaml;Windows\Graph2.xaml;Windows\MainWindow.xaml;Windows\ProblemManager\PreConfiguration.xaml;Windows\ProblemManager\ProblemManager.xaml;Windows\Solution.xaml;
+33-486547888
+17-2090970640
+Controls\Matrix.xaml;Windows\Graph.xaml;Windows\Graph2.xaml;Windows\MainWindow.xaml;Windows\ProblemManager\PreConfiguration.xaml;Windows\ProblemManager\ProblemManager.xaml;Windows\SettingsWindow.xaml;Windows\SolutionWindow.xaml;
 
 False
 

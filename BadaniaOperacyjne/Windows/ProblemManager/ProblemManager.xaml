@@ -2,13 +2,14 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:dg2d="clr-namespace:DataGrid2DLibrary;assembly=DataGrid2DLibrary"
-        Title="Problem Manager" ResizeMode="CanMinimize" 
+        Title="{Binding CurrentFile}" ResizeMode="CanResize" 
         mc:Ignorable="d" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:validation="clr-namespace:BadaniaOperacyjne.ValidationRules"
         d:DesignHeight="350" d:DesignWidth="750" SizeToContent="WidthAndHeight"
-        Width="800" MinWidth="800" MinHeight="380" Name="ProblemManagerWindow">
+        MinWidth="400" MinHeight="260"
+        Name="ProblemManagerWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -17,101 +18,42 @@
         </Grid.RowDefinitions>
         <Menu Grid.Row="0" Margin="0">
             <MenuItem Header="Plik">
-                <MenuItem Header="Otwórz" />
-                <MenuItem Header="Zapisz"/>
-                <MenuItem Header="Wyjdź" />
+                <MenuItem Command="ApplicationCommands.New" Header="Nowy"/>
+                <MenuItem Command="ApplicationCommands.Open" Header="Otwórz" />
+                <MenuItem Command="ApplicationCommands.Save" Header="Zapisz"/>
+                <MenuItem Command="ApplicationCommands.SaveAs" Header="Zapisz jako" />
+                <MenuItem Command="ApplicationCommands.Close" Header="Wyjdź" />
             </MenuItem>
         </Menu>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
             </Grid.ColumnDefinitions>
-            <dg2d:DataGrid2D Grid.Column="0" DockPanel.Dock="Top" Name="dataGrid" ItemsSource2D="{Binding ItemsList}" BorderThickness="0" Width="397" MaxWidth="397" MaxHeight="273"></dg2d:DataGrid2D>
-                <!--<TextBlock DockPanel.Dock="Top" Text="{Binding Title}"/>-->
-                <!--<DataGrid Name="dataGridLol" RowHeaderWidth="30" ItemsSource="{Binding ItemsList}" DockPanel.Dock="Top"></DataGrid>-->
-            <Grid Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
+            <dg2d:DataGrid2D Grid.Column="0"
+                DockPanel.Dock="Top" Name="dataGrid" 
+                ItemsSource2D="{Binding ItemsList}" BorderThickness="0" 
+                CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False">
+                <dg2d:DataGrid2D.ColumnHeaderStyle>
+                    <Style TargetType="DataGridColumnHeader">
+                        <EventSetter Event="Click" Handler="dataGrid_ColumnHeader_Click"/>
+                    </Style>
+                </dg2d:DataGrid2D.ColumnHeaderStyle>
+                <dg2d:DataGrid2D.RowHeaderStyle>
+                    <Style TargetType="DataGridRowHeader">
+                        <EventSetter Event="Click" Handler="dataGrid_RowHeader_Click" />
+                    </Style>
+                </dg2d:DataGrid2D.RowHeaderStyle>
+            </dg2d:DataGrid2D>
+            <Grid Grid.Column="1" Width="300" 
+                HorizontalAlignment="Right" VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Temperatura początkowa" Margin="10" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Margin="10" Padding="2">
-                    <TextBox.Text>
-                        <Binding Path="StartingTemperature">
-                            <!--
-                            <Binding.ValidationRules>
-                                <validation:RangeRule Minimum="0" Maximum="100"/>
-                            </Binding.ValidationRules>
-                            -->
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
-
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Temperatura końcowa" Margin="10" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Margin="10" Padding="2">
-                    <TextBox.Text>
-                        <Binding Path="EndingTemperature">
-                            <!--
-                            <Binding.ValidationRules>
-                                <validation:RangeRule Minimum="0" Maximum="100"/>
-                            </Binding.ValidationRules>
-                            -->
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
-
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Współczynnik chłodzenia" Margin="10" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Margin="10" Padding="2">
-                    <TextBox.Text>
-                        <Binding Path="CoolingCoefficient">
-                            <!--
-                            <Binding.ValidationRules>
-                                <validation:RangeRule Minimum="0" Maximum="1" Exclusive="True"/>
-                            </Binding.ValidationRules>
-                            -->
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
-
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Liczba iteracji w pierwszym bloku" Margin="10" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Margin="10" Padding="2">
-                    <TextBox.Text>
-                        <Binding Path="NumIterations">
-                            <!--
-                            <Binding.ValidationRules>
-                                <validation:RangeRule Minimum="100" Maximum="10000"/>
-                            </Binding.ValidationRules>
-                            -->
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
-                
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Mnożnik liczby iteracji" Margin="10" VerticalAlignment="Center"/>
-                <TextBox Grid.Row="4" Grid.Column="1" Margin="10" Padding="2">
-                    <TextBox.Text>
-                        <Binding Path="NumIterationsMultiplier">
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                <Button Grid.Column="0" Content="Rozwiąż" Height="25" Margin="10" Click="btnSolve_Click"/>
+                <Button Grid.Column="1" Content="Anuluj" Height="25" Margin="10" Command="ApplicationCommands.Close"/>
             </Grid>
-        </Grid>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Button Grid.Column="2" Content="Rozwiąż" Height="25" Margin="10" Click="btnSolve_Click"/>
-            <Button Grid.Column="3" Content="Anuluj" Height="25" Margin="10" Click="btnCancel_Click"/>
         </Grid>
     </Grid>
 </Window>

@@ -23,21 +23,9 @@ namespace BadaniaOperacyjne.Windows
     /// </summary>
     public partial class Graph2 : Window
     {
-        private static Graph2 current = null;
-        public static Graph2 Current
-        {
-            get
-            {
-                if (current == null)
-                    current = new Graph2();
-                return current;
-            }
-            set { }
-        }
-
         public PlotModel MyPlotModel { get; set; }
 
-        private Graph2()
+        public Graph2()
         {
             InitializeComponent();
 
@@ -65,14 +53,7 @@ namespace BadaniaOperacyjne.Windows
             }
 
             MyPlotModel = plot;
-
-            Show();
         }
 
-        protected override void OnClosed(EventArgs e)
-        {
-            current = null;
-            base.OnClosed(e);
-        }
     }
 }

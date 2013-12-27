@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BadaniaOperacyjne.DataType.DataFlow;
+using BadaniaOperacyjne.DataType;
 
 namespace BadaniaOperacyjne.Solver
 {
     public interface ISolver
     {
-        OutputData Solve(InputData input);
+        OutputData Solve(InputData input, Settings settings);
     }
 }

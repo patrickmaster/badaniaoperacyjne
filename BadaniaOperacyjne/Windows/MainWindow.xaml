@@ -1,7 +1,7 @@
 ﻿<Window x:Class="BadaniaOperacyjne.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Width="525" ResizeMode="CanMinimize"
+        Title="Problem komiwojażera" Width="525" ResizeMode="CanMinimize"
         SizeToContent="Height">
     <Grid Margin="10">
         <Grid>
@@ -14,14 +14,14 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Otwórz menedżera zagadnień, by utworzyć nowy problem komiwojażera lub wczytać wcześniej utworzony problem" TextWrapping="Wrap" Margin="10" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Otwórz menedżera zagadnień, by rozwiązać nowy problem komiwojażera lub wczytać wcześniej utworzony problem" TextWrapping="Wrap" Margin="10" VerticalAlignment="Center"></TextBlock>
             <Button Grid.Row="0" Grid.Column="1" Content="Rozwiąż problem" Height="25" Margin="10" Click="btnSolveProblem_Click"></Button>
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Wybierz spośród zapisanych rozwiązań problemów" TextWrapping="Wrap" Margin="10" VerticalAlignment="Center"></TextBlock>
             <Button Grid.Row="1" Grid.Column="1" Content="Wczytaj rozwiązanie" Height="25" Margin="10"></Button>
-        
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Fake rozwiązanie" Margin="10" VerticalAlignment="Center"></TextBlock>
-            <Button Grid.Row="2" Grid.Column="1" Content="Opcja1" Height="25" Margin="10" Click="btnTest_Click"></Button>
+            
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Otwórz ustawienia, by zmienić parametry algorytmu" TextWrapping="Wrap" Margin="10" VerticalAlignment="Center"></TextBlock>
+            <Button Grid.Row="2" Grid.Column="1" Content="Ustawienia" Height="25" Margin="10" Click="btnSettings_Click"></Button>
         
         </Grid>
     </Grid>
