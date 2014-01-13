@@ -7,8 +7,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:validation="clr-namespace:BadaniaOperacyjne.ValidationRules"
-        d:DesignHeight="350" d:DesignWidth="750" SizeToContent="WidthAndHeight"
-        MinWidth="400" MinHeight="260"
+        SizeToContent="WidthAndHeight"
+        MinWidth="300" MinHeight="200"
         Name="ProblemManagerWindow">
     <Grid>
         <Grid.RowDefinitions>
@@ -26,11 +26,11 @@
             </MenuItem>
         </Menu>
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="300"/>
-            </Grid.ColumnDefinitions>
-            <dg2d:DataGrid2D Grid.Column="0"
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <dg2d:DataGrid2D Grid.Row="0"
                 DockPanel.Dock="Top" Name="dataGrid" 
                 ItemsSource2D="{Binding ItemsList}" BorderThickness="0" 
                 CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False">
@@ -45,7 +45,7 @@
                     </Style>
                 </dg2d:DataGrid2D.RowHeaderStyle>
             </dg2d:DataGrid2D>
-            <Grid Grid.Column="1" Width="300" 
+            <Grid Grid.Row="1" Width="300" 
                 HorizontalAlignment="Right" VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

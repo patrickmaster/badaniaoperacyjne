@@ -25,8 +25,6 @@ namespace BadaniaOperacyjne.Windows
     public partial class MainWindow : Window
     {
         protected List<Window> windows;
-        private ISolver solver;
-        private ISettingsManager settingsManager;
 
         public MainWindow()
         {
@@ -34,8 +32,7 @@ namespace BadaniaOperacyjne.Windows
 
             InitializeComponent();
 
-            solver = new MockSolver();
-            settingsManager = new SettingsManager.SettingsManager();
+            //solver = new Solver.Solver();
         }
 
         private bool? ShowDialogWindow(Window window)
@@ -77,9 +74,7 @@ namespace BadaniaOperacyjne.Windows
                 return;
             }
 
-            OutputData output = solver.Solve(input, settingsManager.GetSettings());
-
-            SolutionWindow solutionWindow = new SolutionWindow(output);
+            SolutionWindow solutionWindow = new SolutionWindow(input);
 
             ShowDialogWindow(solutionWindow);
         }

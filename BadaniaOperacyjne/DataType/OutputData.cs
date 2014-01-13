@@ -10,7 +10,7 @@ namespace BadaniaOperacyjne.DataType
         public OutputData()
         {
             Order = new List<uint>();
-            Iterations = new List<Iteration>();
+            Iterations = new List<IterationBlock>();
         }
 
         /// <summary>
@@ -21,6 +21,11 @@ namespace BadaniaOperacyjne.DataType
         /// <summary>
         /// Lista iteracji.
         /// </summary>
-        public List<Iteration> Iterations { get; set; }
+        public List<IterationBlock> Iterations { get; set; }
+
+        /// <summary>
+        /// Koszt ostateczny przejazdu po wyznaczonej trasie
+        /// </summary>
+        public double TotalCost { get; set; }
     }
 }

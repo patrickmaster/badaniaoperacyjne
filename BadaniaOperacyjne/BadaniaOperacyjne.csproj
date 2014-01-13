@@ -103,10 +103,15 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataType\Iteration.cs" />
+    <Compile Include="DataType\IterationBlock.cs" />
     <Compile Include="DataType\Settings.cs" />
     <Compile Include="Parser\Parser.cs" />
     <Compile Include="SettingsManager\ISettingsManager.cs" />
     <Compile Include="SettingsManager\SettingsManager.cs" />
+    <Compile Include="Solver\Solver.cs" />
+    <Compile Include="Solver\SolverCancelEventArgs.cs" />
+    <Compile Include="Solver\SolverDoneEventArgs.cs" />
+    <Compile Include="Solver\SolverProgressEventArgs.cs" />
     <Compile Include="Utilities\Validation.cs" />
     <Compile Include="Windows\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
