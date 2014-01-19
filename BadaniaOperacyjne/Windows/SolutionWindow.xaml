@@ -2,29 +2,93 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf"
+        xmlns:windows="clr-namespace:BadaniaOperacyjne.Windows"
         Title="Rozwiązanie" MinHeight="600" MinWidth="800" SizeToContent="Height">
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="{x:Static windows:SolutionWindow.SolveAgainSolverCommand}"
+            Executed="SolveAgainSolverCommandExecuted"
+            CanExecute="SolveAgainSolverCommandCanExecute"/>
+        <CommandBinding 
+            Command="{x:Static windows:SolutionWindow.CancelSolverCommand}"
+            Executed="CancelSolverCommandExecuted"
+            CanExecute="CancelSolverCommandCanExecute"/>
+        <CommandBinding
+            Command="{x:Static windows:SolutionWindow.SaveAsCommand}"
+            Executed="SaveAsCommandExecuted"
+            CanExecute="SaveAsCommandCanExecute"/>
+        <CommandBinding
+            Command="ApplicationCommands.Close"
+            Executed="CloseCommandExecuted"/>
+    </Window.CommandBindings>
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
-            
-            <oxy:Plot Grid.Row="0" Model="{Binding GraphPlotModel}"></oxy:Plot>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="3*"/>
-                </Grid.ColumnDefinitions>
+            <Menu Grid.Row="0" Margin="0">
+                <MenuItem Header="Plik">
+                    <MenuItem Header="Zapisz jako" Command="{x:Static windows:SolutionWindow.SaveAsCommand}"/>
+                    <MenuItem Header="Wyjdź" Command="ApplicationCommands.Close"/>
+                </MenuItem>
+            </Menu>
+            <oxy:Plot Grid.Row="1" Model="{Binding GraphPlotModel}"></oxy:Plot>
+            <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Kolejność miast" Margin="10"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding PlacesOrder, Mode=OneWay}" IsReadOnly="True" Margin="10" Padding="2"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Funkcja celu" Margin="10" />
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TotalCost, Mode=OneWay}" IsReadOnly="True" Margin="10" Padding="2"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Kolejność miast" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding PlacesOrder, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
+                <TextBlock Grid.Row="0" Grid.Column="2" Text="Liczba popraw" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="0" Grid.Column="3" Text="{Binding TotalProgressions, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
+                <TextBlock Grid.Row="0" Grid.Column="4" Text="Maks wartość" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="0" Grid.Column="5" Text="{Binding MaxCost, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
+                <TextBlock Grid.Row="0" Grid.Column="6" Text="Bloków iteracji" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="0" Grid.Column="7" Text="{Binding IterationBlocksNumber, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
+                
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Funkcja celu" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding TotalCost, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
+                <TextBlock Grid.Row="1" Grid.Column="2" Text="Liczba pogorszeń" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding TotalRegressions, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
+                <TextBlock Grid.Row="1" Grid.Column="4" Text="Min wartość" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="1" Grid.Column="5" Text="{Binding MinCost, Mode=OneWay}" IsReadOnly="true" Margin="5" Padding="2"/>
+                
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Temp startowa" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding StartingTemperature, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
+                <TextBlock Grid.Row="2" Grid.Column="2" Text="Temp końcowa" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding EndingTemperature, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
+                <TextBlock Grid.Row="2" Grid.Column="4" Text="Temp obecna" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="2" Grid.Column="5" Text="{Binding CurrentTemperature,Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        Grid.Column="0" Content="Rozwiąż ponownie"
+                        Command="{x:Static windows:SolutionWindow.SolveAgainSolverCommand}"
+                        Height="25" Margin="5"/>
+                    <Button Grid.Column="1" Content="Anuluj" 
+                            Command="{x:Static windows:SolutionWindow.CancelSolverCommand}"
+                            Height="25" Margin="5"/>
+                </Grid>
             </Grid>
         </Grid>
     </Grid>

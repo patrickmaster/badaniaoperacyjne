@@ -21,8 +21,8 @@
                 <ColumnDefinition Width="1.2*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Temperatura początkowa" Margin="10" VerticalAlignment="Center"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Margin="10" Padding="2">
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Temperatura początkowa" Margin="5" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Padding="2">
                 <TextBox.Text>
                     <Binding Path="StartingTemperature">
                         <!--
@@ -34,8 +34,8 @@
                 </TextBox.Text>
             </TextBox>
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Temperatura końcowa" Margin="10" VerticalAlignment="Center"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Margin="10" Padding="2">
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Temperatura końcowa" Margin="5" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Padding="2">
                 <TextBox.Text>
                     <Binding Path="EndingTemperature">
                         <!--
@@ -47,8 +47,8 @@
                 </TextBox.Text>
             </TextBox>
 
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Współczynnik chłodzenia" Margin="10" VerticalAlignment="Center"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Margin="10" Padding="2">
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Współczynnik chłodzenia" Margin="5" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Padding="2">
                 <TextBox.Text>
                     <Binding Path="CoolingCoefficient">
                         <!--
@@ -60,8 +60,8 @@
                 </TextBox.Text>
             </TextBox>
 
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="Liczba iteracji w pierwszym bloku" Margin="10" VerticalAlignment="Center"/>
-            <TextBox Grid.Row="3" Grid.Column="1" Margin="10" Padding="2">
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Liczba iteracji w pierwszym bloku" Margin="5" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Padding="2">
                 <TextBox.Text>
                     <Binding Path="NumIterations">
                         <!--
@@ -73,8 +73,8 @@
                 </TextBox.Text>
             </TextBox>
 
-            <TextBlock Grid.Row="4" Grid.Column="0" Text="Mnożnik liczby iteracji" Margin="10" VerticalAlignment="Center"/>
-            <TextBox Grid.Row="4" Grid.Column="1" Margin="10" Padding="2">
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Mnożnik liczby iteracji" Margin="5" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="4" Grid.Column="1" Margin="5" Padding="2">
                 <TextBox.Text>
                     <Binding Path="NumIterationsMultiplier">
                     </Binding>
@@ -86,8 +86,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Content="Zapisz" Height="25" Margin="10" Click="btnSave_Click"/>
-            <Button Grid.Column="1" Content="Anuluj" Height="25" Margin="10" Click="btnCancel_Click"/>
+            <Button Grid.Column="0" Content="Zapisz" Height="25" Margin="5" Click="btnSave_Click"/>
+            <Button Grid.Column="1" Content="Anuluj" Height="25" Margin="5" Click="btnCancel_Click"/>
         </Grid>
     </Grid>
 </Window>

@@ -47,6 +47,7 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
             DataContext = VM;
 
             InitializeComponent();
+            VM.NumPlaces = 5;
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)

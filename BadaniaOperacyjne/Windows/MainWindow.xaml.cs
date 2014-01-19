@@ -16,6 +16,8 @@ using BadaniaOperacyjne.DataType.Graph;
 using System.ComponentModel;
 using BadaniaOperacyjne.Solver;
 using BadaniaOperacyjne.SettingsManager;
+using Microsoft.Win32;
+using BadaniaOperacyjne.Parser;
 
 namespace BadaniaOperacyjne.Windows
 {
@@ -25,6 +27,9 @@ namespace BadaniaOperacyjne.Windows
     public partial class MainWindow : Window
     {
         protected List<Window> windows;
+        private IParser parser = new Parser.Parser();
+
+        public static RoutedCommand OpenSolutionCommand = new RoutedCommand();
 
         public MainWindow()
         {
@@ -83,6 +88,28 @@ namespace BadaniaOperacyjne.Windows
         {
             SettingsWindow settingsWindow = new SettingsWindow();
             ShowDialogWindow(settingsWindow);
+        }
+
+        private void OpenSolutionCommandExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.DefaultExt = "tssf";
+            dialog.Filter = "Plik z rozwiązaniem problemu komiwojażera (*.tssf)|*.tssf";
+
+            if (dialog.ShowDialog() == true)
+            {
+                SolutionData solution = null;
+                try
+                {
+                    solution = parser.ReadSolutionFile(dialog.FileName);
+                    SolutionWindow solutionWindow = new SolutionWindow(solution);
+                    ShowDialogWindow(solutionWindow);
+                }
+                catch
+                {
+                    MessageBox.Show("Błąd podczas odczytywania pliku z rozwiązaniem", "Uwaga");
+                }
+            }
         }
     }
 }

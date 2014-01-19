@@ -29,5 +29,10 @@ namespace BadaniaOperacyjne.DataType
         /// Lista iteracji w tym bloku
         /// </summary>
         public List<Iteration> Iterations { get; set; }
+
+        /// <summary>
+        /// Temperatura średnia dla bloku iteracji
+        /// </summary>
+        public double CurrentTemperature { get; set; }
     }
 }

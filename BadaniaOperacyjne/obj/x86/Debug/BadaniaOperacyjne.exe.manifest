@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BadaniaOperacyjne.exe" size="64000">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BadaniaOperacyjne.exe" size="78848">
       <assemblyIdentity name="BadaniaOperacyjne" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>7epcPZOBjjlpDvbuQrqjV6Smne0=</dsig:DigestValue>
+        <dsig:DigestValue>dBCs5T6YH9QIVn1l7WRE57W5RNo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

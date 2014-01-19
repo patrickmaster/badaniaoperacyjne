@@ -7,6 +7,10 @@ namespace BadaniaOperacyjne.DataType
 {
     public class Iteration
     {
+        public Iteration()
+        {
+            IterationNumber = 0;
+        }
         public Iteration(int num)
         {
             IterationNumber = num;

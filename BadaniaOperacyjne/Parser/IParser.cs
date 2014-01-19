@@ -10,9 +10,9 @@ namespace BadaniaOperacyjne.Parser
     {
         InputData ReadBinaryProblemFile(string filename);
         InputData ReadUserProblemFile(string filename);
-        Solution ReadSolutionFile(string filename);
+        SolutionData ReadSolutionFile(string filename);
         
         void WriteBinaryProblemFile(string filename, InputData problem);
-        void WriteSolutionFile(string filename, Solution solution);
+        void WriteSolutionFile(string filename, SolutionData solution);
     }
 }

@@ -108,7 +108,11 @@
     <Compile Include="Parser\Parser.cs" />
     <Compile Include="SettingsManager\ISettingsManager.cs" />
     <Compile Include="SettingsManager\SettingsManager.cs" />
+    <Compile Include="Solver\ISolver.cs" />
+    <Compile Include="Solver\MockSolver.cs" />
     <Compile Include="Solver\Solver.cs" />
+    <Compile Include="Solver\SolverBeginEventArgs.cs" />
+    <Compile Include="Solver\SolverBusyException.cs" />
     <Compile Include="Solver\SolverCancelEventArgs.cs" />
     <Compile Include="Solver\SolverDoneEventArgs.cs" />
     <Compile Include="Solver\SolverProgressEventArgs.cs" />
@@ -143,7 +147,7 @@
     <Compile Include="Controls\Matrix.xaml.cs">
       <DependentUpon>Matrix.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataType\Solution.cs" />
+    <Compile Include="DataType\SolutionData.cs" />
     <Compile Include="DataType\Graph\IndependentArguments.cs" />
     <Compile Include="DataType\Graph\MultipleValues.cs" />
     <Compile Include="DataType\Graph\Point.cs" />
@@ -153,8 +157,8 @@
     <Compile Include="DataType\InputData.cs" />
     <Compile Include="DataType\OutputData.cs" />
     <Compile Include="Parser\IParser.cs" />
-    <Compile Include="Solver\ISolver.cs" />
-    <Compile Include="Solver\MockSolver.cs" />
+    <Compile Include="Solver\IAsyncSolver.cs" />
+    <Compile Include="Solver\AsyncSolver.cs" />
     <Compile Include="ValidationRules\RangeRule.cs" />
     <Compile Include="Windows\Graph.xaml.cs">
       <DependentUpon>Graph.xaml</DependentUpon>

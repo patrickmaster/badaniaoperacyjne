@@ -13,11 +13,11 @@ namespace BadaniaOperacyjne.SettingsManager
 
         private static Settings defaultSettings = new Settings
         {
-            StartingTemperature = 100,
-            EndingTemperature = 50,
-            NumIterations = 1000,
-            NumIterationsMultiplier = 1,
-            CoolingCoefficient = 0.9
+            StartingTemperature = 10,
+            EndingTemperature = 1,
+            NumIterations = 2000,
+            NumIterationsMultiplier = 1.5,
+            CoolingCoefficient = 0.85
         };
 
         private static Settings currentSettings = null;
@@ -55,37 +55,39 @@ namespace BadaniaOperacyjne.SettingsManager
 
         public Settings GetSettings()
         {
-            if (currentSettings != null)
-                return currentSettings;
+            //if (currentSettings != null)
+            //    return currentSettings;
 
-            FileStream stream = null;
-            BinaryReader reader = null;
-            try
-            {
-                Settings settings = new Settings();
-                stream = new FileStream(filePath, FileMode.Open);
-                reader = new BinaryReader(stream);
+            Settings settings = null;
 
-                settings.StartingTemperature = reader.ReadDouble();
-                settings.EndingTemperature = reader.ReadDouble();
-                settings.NumIterations = reader.ReadInt32();
-                settings.NumIterationsMultiplier = reader.ReadDouble();
-                settings.CoolingCoefficient = reader.ReadDouble();
+            using (FileStream stream = new FileStream(filePath, FileMode.Open))
+            {
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    try
+                    {
+                        settings = ReadSettings(reader);
+                        currentSettings = settings;
+                    }
+                    catch
+                    {
+                        return defaultSettings;
+                    }
+                }
+            }
 
-                currentSettings = settings;
-                return currentSettings;
-            }
-            catch
-            {
-                return defaultSettings;
-            }
-            finally
-            {
-                if (stream != null)
-                    stream.Close();
-                if (reader != null)
-                    reader.Close();
-            }
+            return settings;
+        }
+
+        private static Settings ReadSettings(BinaryReader reader)
+        {
+            Settings settings = new Settings();
+            settings.StartingTemperature = reader.ReadDouble();
+            settings.EndingTemperature = reader.ReadDouble();
+            settings.NumIterations = reader.ReadInt32();
+            settings.NumIterationsMultiplier = reader.ReadDouble();
+            settings.CoolingCoefficient = reader.ReadDouble();
+            return settings;
         }
     }
 }

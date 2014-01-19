@@ -65,7 +65,7 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
             /// </summary>
             private void ConstructNonNestedFields()
             {
-                PetrolPlaces = new List<int>();
+                PetrolPlaces = new ObservableCollection<int>();
                 CurrentFile = null;
                 NumPlaces = ItemsList.Count;
             }
@@ -91,7 +91,7 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
                 }
             }
 
-            public List<int> PetrolPlaces { get; set; }
+            public ObservableCollection<int> PetrolPlaces { get; set; }
 
             private string currentFile;
             public string CurrentFile
@@ -103,7 +103,19 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
                     {
                         currentFile = value;
                         NotifyPropertyChanged("CurrentFile");
+                        NotifyPropertyChanged("WindowTitle");
                     }
+                }
+            }
+
+            public string WindowTitle
+            {
+                get
+                {
+                    if (string.IsNullOrEmpty(currentFile))
+                        return "Manager problemów";
+                    else
+                        return currentFile + " - Manager problemów";
                 }
             }
         }
@@ -112,46 +124,65 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
 
         private IParser parser;
 
-        public ProblemManager(int problemSize)
+        private bool isUnsaved = false;
+
+        private ProblemManager()
+        {
+            this.Closing += ProblemManager_Closing;
+        }
+
+        public ProblemManager(int problemSize) : this()
         {
             parser = new Parser.Parser();
 
             VM = new LocalViewModel(problemSize);
+            VM.PropertyChanged += ViewModelChanged;
+            VM.PetrolPlaces.CollectionChanged += ViewModelChanged;
 
             DataContext = VM;
             InitializeComponent();
-
-            AddBindings();
+            dataGrid.CellEditEnding += ViewModelChanged;
         }
 
-        private void AddBindings()
+        void ViewModelChanged(object sender, EventArgs e)
         {
-            CommandBinding newBinding = new CommandBinding(ApplicationCommands.New);
-            newBinding.Executed += newBinding_Executed;
-            this.CommandBindings.Add(newBinding);
+            isUnsaved = true;
+        }
 
-            CommandBinding openBinding = new CommandBinding(ApplicationCommands.Open);
-            openBinding.Executed += openBinding_Executed;
-            this.CommandBindings.Add(openBinding);
+        void ProblemManager_Closing(object sender, CancelEventArgs e)
+        {
+            if (isUnsaved == true)
+            {
+                MessageBoxResult result = MessageBox.Show("Zapisać zmiany?", "Uwaga", MessageBoxButton.YesNoCancel);
 
-            CommandBinding saveBinding = new CommandBinding(ApplicationCommands.Save);
-            saveBinding.Executed += saveBinding_Executed;
-            this.CommandBindings.Add(saveBinding);
+                switch (result)
+                {
+                    case MessageBoxResult.Yes:
+                        //SaveAsCommand.Execute(null, null);
+                        if (VM.CurrentFile == null)
+                        {
+                            ApplicationCommands.SaveAs.Execute(null, null);
+                        }
+                        else
+                        {
+                            ApplicationCommands.Save.Execute(null, null);
+                        }
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                    case MessageBoxResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
+            }
 
-            CommandBinding saveAsBinding = new CommandBinding(ApplicationCommands.SaveAs);
-            saveAsBinding.Executed += saveAsBinding_Executed;
-            this.CommandBindings.Add(saveAsBinding);
-
-            CommandBinding closeBinding = new CommandBinding(ApplicationCommands.Close);
-            closeBinding.Executed += closeBinding_Executed;
-            this.CommandBindings.Add(closeBinding);
         }
 
         void openBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.DefaultExt = ".kprb";
-            openFileDialog.Filter = "Plik z problemem komiwojażera (*.krpb)|*.kprb";
+            openFileDialog.DefaultExt = "tspf";
+            openFileDialog.Filter = "Plik z problemem komiwojażera (*.tspf)|*.tspf";
 
             if (openFileDialog.ShowDialog() == true)
             {
@@ -160,14 +191,17 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
                 {
                     InputData input = parser.ReadBinaryProblemFile(path);
                     VM.Construct(input.Places);
+                    VM.PetrolPlaces.CollectionChanged += ViewModelChanged;
                     Dispatcher.BeginInvoke((Action)delegate
                     {
                         foreach (int petrolPlace in input.PetrolPlaces)
                         {
                             TogglePlaceType(petrolPlace);
                         }
+                        isUnsaved = false;
                     }, System.Windows.Threading.DispatcherPriority.Render);
                     VM.CurrentFile = path;
+                    isUnsaved = false;
                 }
                 catch
                 {
@@ -185,8 +219,8 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
         private void saveAsBinding_Executed(object sender, ExecutedRoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.DefaultExt = ".kprb";
-            saveFileDialog.Filter = "Plik z problemem komiwojażera (*.krpb)|*.kprb";
+            saveFileDialog.DefaultExt = "tspf";
+            saveFileDialog.Filter = "Plik z problemem komiwojażera (*.tspf)|*.tspf";
 
             if (saveFileDialog.ShowDialog() == true)
             {
@@ -195,6 +229,7 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
                 {
                     parser.WriteBinaryProblemFile(path, ToInputData());
                     VM.CurrentFile = path;
+                    isUnsaved = false;
                 }
                 catch
                 {
@@ -208,6 +243,7 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
             if (VM.CurrentFile != null)
             {
                 parser.WriteBinaryProblemFile(VM.CurrentFile, ToInputData());
+                isUnsaved = false;
             }
             else
             {
@@ -235,7 +271,7 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
                 result.Places.Add(column);
             }
 
-            result.PetrolPlaces = VM.PetrolPlaces;
+            result.PetrolPlaces = VM.PetrolPlaces.ToList();
             result.NumPlaces = VM.NumPlaces;
 
             return result;
