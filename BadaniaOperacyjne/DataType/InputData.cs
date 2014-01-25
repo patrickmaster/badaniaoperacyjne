@@ -25,14 +25,9 @@ namespace BadaniaOperacyjne.DataType
         /// Liczba miejsc (dostarczenia paczek i stacji benzynowych)
         /// </summary>
         public int NumPlaces { get; set; }
-
         /// <summary>
-        /// Lista operacji możliwych do wykonania w algorytmie
+        /// Pojemność baku samochodu
         /// </summary>
-        public List<OperationType> Operations { get; set; }
-    }
-
-    public enum OperationType
-    {
+        public double FuelCapacity { get; set; }
     }
 }

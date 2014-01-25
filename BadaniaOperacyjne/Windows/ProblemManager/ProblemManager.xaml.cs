@@ -70,11 +70,6 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
                 NumPlaces = ItemsList.Count;
             }
 
-            void ItemsList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-            {
-                System.Diagnostics.Debug.WriteLine("problem manager: items list changed " + e.NewItems.Count);
-            }
-
             public int NumPlaces { get; set; }
 
             private List<List<double>> itemsList;
@@ -116,6 +111,20 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
                         return "Manager problemów";
                     else
                         return currentFile + " - Manager problemów";
+                }
+            }
+
+            private double fuelCapacity;
+            public double FuelCapacity
+            {
+                get { return fuelCapacity; }
+                set
+                {
+                    if (value != fuelCapacity)
+                    {
+                        fuelCapacity = value;
+                        NotifyPropertyChanged("FuelCapacity");
+                    }
                 }
             }
         }
@@ -273,6 +282,7 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
 
             result.PetrolPlaces = VM.PetrolPlaces.ToList();
             result.NumPlaces = VM.NumPlaces;
+            result.FuelCapacity = VM.FuelCapacity;
 
             return result;
         }

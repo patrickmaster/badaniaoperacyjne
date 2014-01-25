@@ -43,7 +43,7 @@ namespace BadaniaOperacyjne.Solver
 
 
             result.TotalCost = 10;
-            result.Order = new List<int> { 4, 5, 6, 3, 2, 1, 0, 6, 5, 4, 3, 3, 4, 234, 234, 32, 34, 4, 43, 4 };
+            result.Solution = new List<int> { 4, 5, 6, 3, 2, 1, 0, 6, 5, 4, 3, 3, 4, 234, 234, 32, 34, 4, 43, 4 };
 
             return result;
         }

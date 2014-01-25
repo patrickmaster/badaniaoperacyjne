@@ -9,7 +9,7 @@ namespace BadaniaOperacyjne.DataType
     {
         public OutputData()
         {
-            Order = new List<int>();
+            Solution = new List<int>();
             Iterations = new List<IterationBlock>();
         }
 
@@ -21,11 +21,28 @@ namespace BadaniaOperacyjne.DataType
         /// <summary>
         /// Kolejność przejazdu komiwojażerka
         /// </summary>
-        public List<int> Order { get; set; }
+        public List<int> Solution { get; set; }
 
         /// <summary>
         /// Lista iteracji.
         /// </summary>
         public List<IterationBlock> Iterations { get; set; }
+
+        /// <summary>
+        /// Czas trwania rozwiązywania
+        /// </summary>
+        public double SolvingTime { get; set; }
+
+        /// <summary>
+        /// Status zakończenia algorytmu
+        /// </summary>
+        public OutputState State { get; set; }
+    }
+
+    public enum OutputState
+    {
+        Done,
+        Cancelled,
+        NoSolution
     }
 }

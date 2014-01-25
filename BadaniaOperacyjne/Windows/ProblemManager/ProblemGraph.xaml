@@ -1,0 +1,9 @@
+﻿<Window x:Class="BadaniaOperacyjne.Windows.ProblemManager.ProblemGraph"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:customproblem="clr-namespace:BadaniaOperacyjne.Controls.Problem;assembly=BadaniaOperacyjne.Controls"
+        Title="ProblemGraph" Height="300" Width="300">
+    <Grid>
+        <customproblem:Graph2/>
+    </Grid>
+</Window>

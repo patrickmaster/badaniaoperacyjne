@@ -12,7 +12,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BadaniaOperacyjne.DataType;
-using BadaniaOperacyjne.DataType.Graph;
 using System.ComponentModel;
 using BadaniaOperacyjne.Solver;
 using BadaniaOperacyjne.SettingsManager;
@@ -110,6 +109,14 @@ namespace BadaniaOperacyjne.Windows
                     MessageBox.Show("Błąd podczas odczytywania pliku z rozwiązaniem", "Uwaga");
                 }
             }
+        }
+
+        private void btnOpenProblemGraph_Click(object sender, RoutedEventArgs e)
+        {
+            ProblemManager.ProblemGraph problemGraph = new ProblemManager.ProblemGraph();
+
+            problemGraph.ShowInTaskbar = true;
+            problemGraph.ShowDialog();
         }
     }
 }

@@ -1,0 +1,11 @@
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\Debug\BadaniaOperacyjneTests.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\Debug\BadaniaOperacyjneTests.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\Debug\BadaniaOperacyjne.exe
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\Debug\OxyPlot.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\Debug\DataGrid2DLibrary.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\Debug\BadaniaOperacyjne.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\Debug\OxyPlot.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\Debug\OxyPlot.xml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\obj\Debug\BadaniaOperacyjneTests.csprojResolveAssemblyReference.cache
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\obj\Debug\BadaniaOperacyjneTests.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\obj\Debug\BadaniaOperacyjneTests.pdb

@@ -105,6 +105,7 @@
     <Compile Include="DataType\Iteration.cs" />
     <Compile Include="DataType\IterationBlock.cs" />
     <Compile Include="DataType\Settings.cs" />
+    <Compile Include="Extensions\List.cs" />
     <Compile Include="Parser\Parser.cs" />
     <Compile Include="SettingsManager\ISettingsManager.cs" />
     <Compile Include="SettingsManager\SettingsManager.cs" />
@@ -117,24 +118,15 @@
     <Compile Include="Solver\SolverDoneEventArgs.cs" />
     <Compile Include="Solver\SolverProgressEventArgs.cs" />
     <Compile Include="Utilities\Validation.cs" />
+    <Compile Include="Windows\ProblemManager\ProblemGraph.xaml.cs">
+      <DependentUpon>ProblemGraph.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SettingsWindow.xaml.cs">
       <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SolutionWindow.xaml.cs">
       <DependentUpon>SolutionWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="Controls\Matrix.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Graph.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Windows\Graph2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -144,33 +136,22 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\ViewModel.cs" />
-    <Compile Include="Controls\Matrix.xaml.cs">
-      <DependentUpon>Matrix.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DataType\SolutionData.cs" />
-    <Compile Include="DataType\Graph\IndependentArguments.cs" />
-    <Compile Include="DataType\Graph\MultipleValues.cs" />
-    <Compile Include="DataType\Graph\Point.cs" />
-    <Compile Include="DataType\Graph\Series.cs" />
-    <Compile Include="DataType\Graph\SimpleData.cs" />
-    <Compile Include="DataType\Graph\ValueLine.cs" />
     <Compile Include="DataType\InputData.cs" />
     <Compile Include="DataType\OutputData.cs" />
     <Compile Include="Parser\IParser.cs" />
     <Compile Include="Solver\IAsyncSolver.cs" />
     <Compile Include="Solver\AsyncSolver.cs" />
     <Compile Include="ValidationRules\RangeRule.cs" />
-    <Compile Include="Windows\Graph.xaml.cs">
-      <DependentUpon>Graph.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\Graph2.xaml.cs">
-      <DependentUpon>Graph2.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\ProblemManager\PreConfiguration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ProblemManager\ProblemGraph.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -241,7 +222,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BadaniaOperacyjne.Controls\BadaniaOperacyjne.Controls.csproj">
+      <Project>{f30e4a61-8ec5-4696-afc6-1e3b17036860}</Project>
+      <Name>BadaniaOperacyjne.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

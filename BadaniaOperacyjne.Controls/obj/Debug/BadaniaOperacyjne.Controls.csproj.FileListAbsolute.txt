@@ -1,0 +1,11 @@
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Debug\BadaniaOperacyjne.Controls.csprojResolveAssemblyReference.cache
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\bin\Debug\BadaniaOperacyjne.Controls.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\bin\Debug\BadaniaOperacyjne.Controls.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Debug\BadaniaOperacyjne.Controls.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Debug\BadaniaOperacyjne.Controls.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Debug\Problem\Graph2.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Debug\BadaniaOperacyjne.Controls_MarkupCompile.cache
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Debug\BadaniaOperacyjne.Controls_MarkupCompile.lref
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Debug\Problem\Graph2.baml
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Debug\BadaniaOperacyjne.Controls.g.resources

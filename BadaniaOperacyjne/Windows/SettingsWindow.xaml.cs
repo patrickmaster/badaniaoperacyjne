@@ -23,6 +23,15 @@ namespace BadaniaOperacyjne.Windows
     {
         public class LocalViewModel : ViewModel
         {
+            public LocalViewModel()
+            {
+                OperationsList = new Dictionary<string, OperationType>();
+                OperationsList.Add("operacja1", OperationType.Operation1);
+                OperationsList.Add("operacja2", OperationType.Operation2);
+                OperationsList.Add("operacja3", OperationType.Operation3);
+                OperationsList.Add("operacja4", OperationType.Operation4);
+            }
+
             protected double startingTemperature;
             public double StartingTemperature
             {
@@ -94,6 +103,22 @@ namespace BadaniaOperacyjne.Windows
                     }
                 }
             }
+
+            public Dictionary<string, OperationType> OperationsList { get; private set; }
+
+            private OperationType operation;
+            public OperationType Operation
+            {
+                get { return operation; }
+                set
+                {
+                    if (value != operation)
+                    {
+                        operation = value;
+                        NotifyPropertyChanged("Operation");
+                    }
+                }
+            }
         }
 
         public LocalViewModel VM { get; set; }
@@ -107,9 +132,18 @@ namespace BadaniaOperacyjne.Windows
             InitializeComponent();
 
             VM = new LocalViewModel();
+            VM.PropertyChanged += VM_PropertyChanged;
             LoadSettings();
 
             DataContext = VM;
+        }
+
+        void VM_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "Operation")
+            {
+                Console.WriteLine("oepration changed");
+            }
         }
 
         private void LoadSettings()
@@ -121,6 +155,7 @@ namespace BadaniaOperacyjne.Windows
             VM.NumIterations = settings.NumIterations;
             VM.NumIterationsMultiplier = settings.NumIterationsMultiplier;
             VM.CoolingCoefficient = settings.CoolingCoefficient;
+            VM.Operation = settings.Operation;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -132,6 +167,7 @@ namespace BadaniaOperacyjne.Windows
             settings.NumIterations = VM.NumIterations;
             settings.NumIterationsMultiplier = VM.NumIterationsMultiplier;
             settings.CoolingCoefficient = VM.CoolingCoefficient;
+            settings.Operation = VM.Operation;
 
             settingsManager.SetSettings(settings);
             DialogResult = true;

@@ -29,7 +29,7 @@ namespace BadaniaOperacyjne.Windows
     public partial class SolutionWindow : Window
     {
         private const int LINES_THICKNESS = 1;
-        private const int DISPLAYED_COSTS_PER_BLOCK = 30;
+        private const int DISPLAYED_COSTS_PER_BLOCK = 50;
 
         private bool isUnsaved = false;
         private InputData input;
@@ -52,6 +52,7 @@ namespace BadaniaOperacyjne.Windows
                 StartingTemperature = 0;
                 EndingTemperature = 0;
                 CurrentTemperature = 0;
+                SolvingTime = 0;
             }
 
             private string placesOrder;
@@ -195,6 +196,20 @@ namespace BadaniaOperacyjne.Windows
                     }
                 }
             }
+
+            private double solvingTime;
+            public double SolvingTime
+            {
+                get { return solvingTime; }
+                set
+                {
+                    if (value != solvingTime)
+                    {
+                        solvingTime = value;
+                        NotifyPropertyChanged("SolvingTime");
+                    }
+                }
+            }
         }
 
         public LocalViewModel VM;
@@ -212,11 +227,6 @@ namespace BadaniaOperacyjne.Windows
             DataContext = VM;
 
             this.Closing += SolutionWindow_Closing;
-        }
-
-        public SolutionWindow(InputData input) : this()
-        {
-            this.input = input;
 
             solver.SolverBegin += solver_SolverBegin;
             solver.SolverProgress += solver_SolverProgress;
@@ -224,6 +234,11 @@ namespace BadaniaOperacyjne.Windows
             //solver.SolverCancel += solver_SolverCancel;
 
             InitializeGraph();
+        }
+
+        public SolutionWindow(InputData input) : this()
+        {
+            this.input = input;
 
             isUnsaved = true;
 
@@ -234,8 +249,6 @@ namespace BadaniaOperacyjne.Windows
         {
             this.solution = solution;
             this.input = solution.Input;
-
-            InitializeGraph();
 
             PlotOutput(solution.Output);
         }
@@ -274,10 +287,15 @@ namespace BadaniaOperacyjne.Windows
             }
         }
 
-        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        protected override void OnClosed(EventArgs e)
         {
-            solver.CancelSolve();
-            base.OnClosing(e);
+            try
+            {
+                solver.CancelSolve();
+            }
+            catch { }
+
+            base.OnClosed(e);
         }
 
         private void InitializeGraph()
@@ -322,15 +340,28 @@ namespace BadaniaOperacyjne.Windows
 
         void solver_SolverDone(object sender, SolverDoneEventArgs args)
         {
-            try
+            OutputData output = args.Output;
+
+            switch (output.State)
             {
-                VM.PlacesOrder = string.Join(",", args.Output.Order);
-                VM.TotalCost = args.Output.TotalCost;
-                solution = new SolutionData(input, args.Output);
-            }
-            catch
-            {
-                MessageBox.Show("Błąd podczas wczytywania danych wynikowych algorytmu", "Uwaga");
+                case OutputState.Done:
+                    try
+                    {
+                        VM.PlacesOrder = string.Join(",", args.Output.Solution);
+                        VM.TotalCost = args.Output.TotalCost;
+                        VM.SolvingTime = args.Output.SolvingTime / 1000;
+                        solution = new SolutionData(input, args.Output);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Błąd podczas wczytywania danych wynikowych algorytmu", "Uwaga");
+                    }
+                    break;
+                case OutputState.Cancelled:
+                    break;
+                case OutputState.NoSolution:
+                    MessageBox.Show("Brak rozwiązania");
+                    break;
             }
             CommandManager.InvalidateRequerySuggested();
         }
@@ -368,8 +399,8 @@ namespace BadaniaOperacyjne.Windows
             {
                 costSeries.Points.Add(new ScatterPoint(/*iteration.IterationNumber*/ (double)count + (double)i/(double)DISPLAYED_COSTS_PER_BLOCK, reducedCosts[i], LINES_THICKNESS));
             }
-            progressionSeries.Points.Add(new ScatterPoint(count, iterationBlock.ProgressionCount));
-            regressionSeries.Points.Add(new ScatterPoint(count, iterationBlock.RegressionCount));
+            progressionSeries.Points.Add(new ScatterPoint(count , iterationBlock.ProgressionCount));
+            regressionSeries.Points.Add(new ScatterPoint(count , iterationBlock.RegressionCount));
 
             VM.TotalProgressions += iterationBlock.ProgressionCount;
             VM.TotalRegressions += iterationBlock.RegressionCount;

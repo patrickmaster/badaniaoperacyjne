@@ -48,7 +48,12 @@ namespace BadaniaOperacyjne.Solver
         {
             BackgroundWorker worker = sender as BackgroundWorker;
 
-            e.Result = solver.Solve(input, settings, worker);
+            System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
+            OutputData output = solver.Solve(input, settings, worker);
+            output.SolvingTime = watch.ElapsedMilliseconds;
+            e.Result = output;
+            watch.Stop();
         }
 
         private void worker_ProgressChanged(object sender, ProgressChangedEventArgs e)

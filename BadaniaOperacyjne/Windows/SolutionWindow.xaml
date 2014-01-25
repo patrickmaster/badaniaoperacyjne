@@ -67,6 +67,8 @@
                 <TextBox Grid.Row="1" Grid.Column="3" Text="{Binding TotalRegressions, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
                 <TextBlock Grid.Row="1" Grid.Column="4" Text="Min wartość" Margin="5" VerticalAlignment="Center"/>
                 <TextBox Grid.Row="1" Grid.Column="5" Text="{Binding MinCost, Mode=OneWay}" IsReadOnly="true" Margin="5" Padding="2"/>
+                <TextBlock Grid.Row="1" Grid.Column="6" Text="Czas rozwiązywania" Margin="5" VerticalAlignment="Center"/>
+                <TextBox Grid.Row="1" Grid.Column="7" Text="{Binding SolvingTime,Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
                 
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="Temp startowa" Margin="5" VerticalAlignment="Center"/>
                 <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding StartingTemperature, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
@@ -74,6 +76,7 @@
                 <TextBox Grid.Row="2" Grid.Column="3" Text="{Binding EndingTemperature, Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
                 <TextBlock Grid.Row="2" Grid.Column="4" Text="Temp obecna" Margin="5" VerticalAlignment="Center"/>
                 <TextBox Grid.Row="2" Grid.Column="5" Text="{Binding CurrentTemperature,Mode=OneWay}" IsReadOnly="True" Margin="5" Padding="2"/>
+                
             </Grid>
             <Grid Grid.Row="3">
                 <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom">

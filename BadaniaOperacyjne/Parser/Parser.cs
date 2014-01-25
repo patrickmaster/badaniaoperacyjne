@@ -17,24 +17,9 @@ namespace BadaniaOperacyjne.Parser
             {
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
-                    //int numPlaces = reader.ReadInt32();
-
-                    //problem.NumPlaces = numPlaces;
-                    //for (int i = 0; i < numPlaces; i++)
-                    //{
-                    //    List<double> list = new List<double>();
-                    //    for (int j = 0; j < numPlaces; j++)
-                    //    {
-                    //        list.Add(reader.ReadDouble());
-                    //    }
-                    //    problem.Places.Add(list);
-                    //}
-
-                    //int petrolPlacesCount = reader.ReadInt32();
-                    //for (int i = 0; i < petrolPlacesCount; i++)
-                    //{
-                    //    problem.PetrolPlaces.Add(reader.ReadInt32());
-                    //}
+                    // TODO: ogarnięcie wyjątku wyrzucanego przy wykroczeniu poza 
+                    // długość streamu. Dla rozrastającego sie InputData i zachowania
+                    // kompatybilności do tej pory zachowanych plików
                     problem = ReadInputData(reader);
                 }
             }
@@ -114,7 +99,7 @@ namespace BadaniaOperacyjne.Parser
         private static void Write(BinaryWriter writer, OutputData output)
         {
             writer.Write(output.TotalCost);
-            Write(writer, output.Order);
+            Write(writer, output.Solution);
             Write(writer, output.Iterations);
         }
 
@@ -122,7 +107,7 @@ namespace BadaniaOperacyjne.Parser
         {
             OutputData result = new OutputData();
             result.TotalCost = reader.ReadDouble();
-            result.Order = ReadCollectionInt(reader).ToList();
+            result.Solution = ReadCollectionInt(reader).ToList();
             result.Iterations = ReadCollectionIterationBlock(reader).ToList();
             return result;
         }

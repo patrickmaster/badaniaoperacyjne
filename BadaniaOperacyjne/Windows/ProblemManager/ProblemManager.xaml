@@ -8,7 +8,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:validation="clr-namespace:BadaniaOperacyjne.ValidationRules"
         SizeToContent="WidthAndHeight"
-        MinWidth="300" MinHeight="200"
+        MinWidth="350" MinHeight="250"
         Name="ProblemManagerWindow">
     <Window.CommandBindings>
         <CommandBinding
@@ -47,21 +47,46 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <dg2d:DataGrid2D Grid.Row="0"
-                DockPanel.Dock="Top" Name="dataGrid" 
-                ItemsSource2D="{Binding ItemsList, UpdateSourceTrigger=LostFocus}" BorderThickness="0" 
-                CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False">
-                <dg2d:DataGrid2D.ColumnHeaderStyle>
-                    <Style TargetType="DataGridColumnHeader">
-                        <EventSetter Event="Click" Handler="dataGrid_ColumnHeader_Click"/>
-                    </Style>
-                </dg2d:DataGrid2D.ColumnHeaderStyle>
-                <dg2d:DataGrid2D.RowHeaderStyle>
-                    <Style TargetType="DataGridRowHeader">
-                        <EventSetter Event="Click" Handler="dataGrid_RowHeader_Click" />
-                    </Style>
-                </dg2d:DataGrid2D.RowHeaderStyle>
-            </dg2d:DataGrid2D>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <dg2d:DataGrid2D Grid.Column="0"
+                    DockPanel.Dock="Top" Name="dataGrid" 
+                    ItemsSource2D="{Binding ItemsList, UpdateSourceTrigger=LostFocus}" BorderThickness="0" 
+                    CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False">
+                    <dg2d:DataGrid2D.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <EventSetter Event="Click" Handler="dataGrid_ColumnHeader_Click"/>
+                        </Style>
+                    </dg2d:DataGrid2D.ColumnHeaderStyle>
+                    <dg2d:DataGrid2D.RowHeaderStyle>
+                        <Style TargetType="DataGridRowHeader">
+                            <EventSetter Event="Click" Handler="dataGrid_RowHeader_Click" />
+                        </Style>
+                    </dg2d:DataGrid2D.RowHeaderStyle>
+                </dg2d:DataGrid2D>
+                <Grid Grid.Column="1" MinWidth="220">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Pojemność baku" Margin="5" VerticalAlignment="Center"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Padding="2">
+                        <TextBox.Text>
+                            <Binding Path="FuelCapacity">
+                                <Binding.ValidationRules>
+                                    <validation:RangeRule Minimum="0" Maximum="5000"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+            </Grid>
             <Grid Grid.Row="1"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>

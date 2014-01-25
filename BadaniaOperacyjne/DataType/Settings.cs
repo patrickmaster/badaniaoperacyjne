@@ -27,5 +27,17 @@ namespace BadaniaOperacyjne.DataType
         /// Współczynnik chłodzenia
         /// </summary>
         public double CoolingCoefficient { get; set; }
+        /// <summary>
+        /// Wykorzystywana w algorytmie operacja
+        /// </summary>
+        public OperationType Operation { get; set; }
+    }
+
+    public enum OperationType
+    {
+        Operation1,
+        Operation2,
+        Operation3,
+        Operation4
     }
 }

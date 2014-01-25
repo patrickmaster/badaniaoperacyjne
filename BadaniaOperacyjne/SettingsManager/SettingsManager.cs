@@ -17,7 +17,8 @@ namespace BadaniaOperacyjne.SettingsManager
             EndingTemperature = 1,
             NumIterations = 2000,
             NumIterationsMultiplier = 1.5,
-            CoolingCoefficient = 0.85
+            CoolingCoefficient = 0.85,
+            Operation = OperationType.Operation1
         };
 
         private static Settings currentSettings = null;
@@ -37,6 +38,7 @@ namespace BadaniaOperacyjne.SettingsManager
                 writer.Write(settings.NumIterations);
                 writer.Write(settings.NumIterationsMultiplier);
                 writer.Write(settings.CoolingCoefficient);
+                writer.Write((int)settings.Operation);
 
                 currentSettings = settings;
             }
@@ -87,6 +89,7 @@ namespace BadaniaOperacyjne.SettingsManager
             settings.NumIterations = reader.ReadInt32();
             settings.NumIterationsMultiplier = reader.ReadDouble();
             settings.CoolingCoefficient = reader.ReadDouble();
+            settings.Operation = (OperationType)reader.ReadInt32();
             return settings;
         }
     }

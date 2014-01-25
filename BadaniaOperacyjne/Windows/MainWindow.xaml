@@ -15,6 +15,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -23,11 +24,14 @@
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Otwórz menedżera zagadnień, by rozwiązać nowy problem komiwojażera lub wczytać wcześniej utworzony problem" TextWrapping="Wrap" Margin="5" VerticalAlignment="Center"></TextBlock>
             <Button Grid.Row="0" Grid.Column="1" Content="Rozwiąż problem" Height="25" Margin="5" Click="btnSolveProblem_Click"></Button>
 
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Wybierz spośród zapisanych rozwiązań problemów" TextWrapping="Wrap" Margin="5" VerticalAlignment="Center"></TextBlock>
-            <Button Grid.Row="1" Grid.Column="1" Content="Wczytaj rozwiązanie" Height="25" Margin="5" Command="{x:Static windows:MainWindow.OpenSolutionCommand}"></Button>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Graf do rysowania problemów" TextWrapping="Wrap" Margin="5" VerticalAlignment="Center"/>
+            <Button Grid.Row="1" Grid.Column="1" Content="Otwórz" Height="25" Margin="5" Click="btnOpenProblemGraph_Click"/>
             
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Otwórz ustawienia, by zmienić parametry algorytmu" TextWrapping="Wrap" Margin="5" VerticalAlignment="Center"></TextBlock>
-            <Button Grid.Row="2" Grid.Column="1" Content="Ustawienia" Height="25" Margin="5" Click="btnSettings_Click"></Button>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Wybierz spośród zapisanych rozwiązań problemów" TextWrapping="Wrap" Margin="5" VerticalAlignment="Center"></TextBlock>
+            <Button Grid.Row="2" Grid.Column="1" Content="Wczytaj rozwiązanie" Height="25" Margin="5" Command="{x:Static windows:MainWindow.OpenSolutionCommand}"></Button>
+            
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Otwórz ustawienia, by zmienić parametry algorytmu" TextWrapping="Wrap" Margin="5" VerticalAlignment="Center"></TextBlock>
+            <Button Grid.Row="3" Grid.Column="1" Content="Ustawienia" Height="25" Margin="5" Click="btnSettings_Click"></Button>
         
         </Grid>
     </Grid>
