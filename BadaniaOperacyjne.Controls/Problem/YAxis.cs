@@ -18,18 +18,33 @@ namespace BadaniaOperacyjne.Controls.Problem
     {
         public YAxis()
         {
-            this.Width = SIZE;
+            //this.Width = SIZE;
             this.VerticalAlignment = VerticalAlignment.Stretch;
+
+            this.ScaleLineLengthChanged += YAxis_ScaleLineLengthChanged;
         }
 
-        protected override void OnRender(System.Windows.Media.DrawingContext drawingContext)
+        void YAxis_ScaleLineLengthChanged(object sender, ValueChangedEventArgs<double> e)
+        {
+            this.InvalidateVisual();
+        }
+
+        protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
 
+            double center = CalculateCenter(size.Height);
+            
             drawingContext.DrawLine(
-                new Pen(Brushes.Black, THICKNESS),
-                new Point(size.Width, MARGIN),
-                new Point(size.Width, size.Height - MARGIN));
+                new Pen(Brushes.Black, Thickness),
+                new Point(size.Width, 0),
+                new Point(size.Width, size.Height));
+
+            drawingContext.DrawLine(
+                new Pen(Brushes.Black, Thickness),
+                new Point(0, center),
+                new Point(ScaleLineLength, center));
         }
+
     }
 }

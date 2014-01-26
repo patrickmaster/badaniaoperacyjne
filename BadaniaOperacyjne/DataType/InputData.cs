@@ -13,6 +13,22 @@ namespace BadaniaOperacyjne.DataType
             PetrolPlaces = new List<int>();
         }
 
+        public InputData(int places)
+        {
+            Places = new List<List<double>>();
+            for (int i = 0; i < places; i++)
+            {
+                List<double> column = new List<double>();
+                for (int j = 0; j < places; j++)
+                {
+                    column.Add(0d);
+                }
+                Places.Add(column);
+            }
+
+            PetrolPlaces = new List<int>();
+        }
+
         /// <summary>
         /// Lista miejsc do tankowania
         /// </summary>

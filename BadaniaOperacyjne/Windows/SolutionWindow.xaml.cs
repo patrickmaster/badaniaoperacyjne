@@ -394,7 +394,7 @@ namespace BadaniaOperacyjne.Windows
             if (currentMax > VM.MaxCost)
                 VM.MaxCost = currentMax;
 
-            List<double> reducedCosts = ReduceCollection(costs, DISPLAYED_COSTS_PER_BLOCK).ToList();
+            List<double> reducedCosts = ReduceCollection(costs, DISPLAYED_COSTS_PER_BLOCK, x => x.Average()).ToList();
             for(int i = 0; i < reducedCosts.Count; i++)
             {
                 costSeries.Points.Add(new ScatterPoint(/*iteration.IterationNumber*/ (double)count + (double)i/(double)DISPLAYED_COSTS_PER_BLOCK, reducedCosts[i], LINES_THICKNESS));
@@ -411,22 +411,26 @@ namespace BadaniaOperacyjne.Windows
             count++;
         }
 
-        private IEnumerable<double> ReduceCollection(IEnumerable<double> collection, int desiredCount)
+        private IEnumerable<double> ReduceCollection(IEnumerable<double> collection, int desiredCount, Func<IEnumerable<double>,double> reducer)
         {
             List<double> result = new List<double>();
             int elementsPerBlock = collection.Count() / desiredCount;
             int count = 0;
+            List<double> container = new List<double>();
 
             while (count < collection.Count())
             {
-                double sum = 0;
+                //double sum = 0;
                 int i = 0;
                 for (i = 0; i < elementsPerBlock && count < collection.Count(); i++, count++)
                 {
-                    sum += collection.ElementAt(count);
+                    //sum += collection.ElementAt(count)
+                    container.Add(collection.ElementAt(count));
                 }
 
-                result.Add(sum / (double)i);
+                //result.Add(sum / (double)i);
+                result.Add(reducer(container));
+                container.Clear();
             }
             return result;
         }
@@ -442,7 +446,7 @@ namespace BadaniaOperacyjne.Windows
                 OxyPlot.Series.StairStepSeries regressionSeries = VM.GraphPlotModel.Series[2] as OxyPlot.Series.StairStepSeries;
 
                 List<double> costs = iterationBlock.Iterations.Select(x => x.Cost).ToList();
-                List<double> reducedCosts = ReduceCollection(costs, DISPLAYED_COSTS_PER_BLOCK).ToList();
+                List<double> reducedCosts = ReduceCollection(costs, DISPLAYED_COSTS_PER_BLOCK, x => x.Average()).ToList();
 
                 for (int i = 0; i < reducedCosts.Count; i++)
                 {

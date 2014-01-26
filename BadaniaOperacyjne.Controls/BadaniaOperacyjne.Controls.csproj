@@ -49,6 +49,12 @@
     <Compile Include="Problem\Graph2.xaml.cs">
       <DependentUpon>Graph2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Problem\PackagePlaceVisual.cs" />
+    <Compile Include="Problem\PetrolPlaceVisual.cs" />
+    <Compile Include="Problem\Place.cs" />
+    <Compile Include="Problem\PlaceVisual.cs" />
+    <Compile Include="Problem\ScaleLine.cs" />
+    <Compile Include="Problem\Translated.cs" />
     <Compile Include="Problem\XAxis.cs" />
     <Compile Include="Problem\YAxis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

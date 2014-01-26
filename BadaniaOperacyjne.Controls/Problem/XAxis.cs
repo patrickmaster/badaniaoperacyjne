@@ -18,17 +18,31 @@ namespace BadaniaOperacyjne.Controls.Problem
     {
         public XAxis()
         {
-            this.Height = SIZE;
+            //this.Height = SIZE;
             this.HorizontalAlignment = HorizontalAlignment.Stretch;
+            this.ScaleLineLengthChanged += XAxis_ScaleLineLengthChanged;
+        }
+
+        void XAxis_ScaleLineLengthChanged(object sender, ValueChangedEventArgs<double> e)
+        {
+            this.InvalidateVisual();
         }
 
         protected override void OnRender(DrawingContext drawingContext)
         {
             base.OnRender(drawingContext);
+
+            double center = CalculateCenter(size.Width);
+
             drawingContext.DrawLine(
-                new Pen(Brushes.Black, THICKNESS),
-                new Point(MARGIN, 0),
-                new Point(size.Width - MARGIN, 0));
+                new Pen(Brushes.Black, Thickness),
+                new Point(0, 0),
+                new Point(size.Width * Math.Exp(Scale / 10d), 0));
+
+            drawingContext.DrawLine(
+                new Pen(Brushes.Black, Thickness),
+                new Point(center, -ScaleLineLength),
+                new Point(center, 0));
         }
     }
 }

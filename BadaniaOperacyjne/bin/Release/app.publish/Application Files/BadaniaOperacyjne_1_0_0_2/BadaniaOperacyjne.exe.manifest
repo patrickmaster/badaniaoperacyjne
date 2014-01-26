@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="BadaniaOperacyjne.exe" version="1.0.0.2" publicKeyToken="1348096ed6ac16e5" language="neutral" processorArchitecture="x86" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="BadaniaOperacyjne" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+    <commandLine file="BadaniaOperacyjne.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BadaniaOperacyjne.exe" size="66048">
+      <assemblyIdentity name="BadaniaOperacyjne" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>HfVPHDDT2GSt7RQLe98aHeP4EGc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BadaniaOperacyjne.Controls.dll" size="10240">
+      <assemblyIdentity name="BadaniaOperacyjne.Controls" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>X6UhsZDxZ4SZuaS66oSbKj20pKc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DataGrid2DLibrary.dll" size="23040">
+      <assemblyIdentity name="DataGrid2DLibrary" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>9Dz5oEz7YMmumxltEvBl8Cc/mW8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DynamicDataDisplay.dll" size="316416">
+      <assemblyIdentity name="DynamicDataDisplay" version="0.3.0.0" publicKeyToken="5B7D744A7263923F" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>lQtSig3PrifOwY5/SFa2wVGPP90=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ru-RU\DynamicDataDisplay.resources.dll" size="7680">
+      <assemblyIdentity name="DynamicDataDisplay.resources" version="0.3.0.0" publicKeyToken="5B7D744A7263923F" language="ru-ru" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>3MXTTwinAVX9aTTEL0O8/gsOKTc=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OxyPlot.dll" size="423424">
+      <assemblyIdentity name="OxyPlot" version="2013.2.142.1" publicKeyToken="638079A8F0BD61E9" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>7S5WM5qBOofyZcRvDAGSl684Yvw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OxyPlot.Wpf.dll" size="130560">
+      <assemblyIdentity name="OxyPlot.Wpf" version="2013.2.142.1" publicKeyToken="75E952BA404CDBB0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>zoUbTb2XazwbDowBJzvRZCjI+Y4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OxyPlot.Xps.dll" size="12288">
+      <assemblyIdentity name="OxyPlot.Xps" version="2013.2.142.1" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>pszAkmUOBGndEtAbo0RJwmVDK40=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+<publisherIdentity name="CN=PATRYK\Patryk" issuerKeyHash="c75244853b1cef3d3584ed56cbc5add6523c3cf1" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>IXT0B1oOXbSkPtkqaZZME6uUhdU=</DigestValue></Reference></SignedInfo><SignatureValue>I/5as7tbD1mwuloZQNv3XvwqK+TdZk/7jwvoACLSoTSFhdDT4vHKFePgCuWMhsCmhCZ6/jBuSene7sRbKzyFyx7WHYYCyIqsBijipdCxgg/pLuo+TIBdjdA6sADuQ2YZNjLTGwvumofxemOarc0Fg4r2JcnjnMnuz7E5guBO53U=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>583jFzrWiNJoSyIjBsNg6+NbUiPX+g+xDtrKdAqFd99KLEMKs9NTSyXLuIm1Md8W2fP4skNTfALaj2JVQs4ZdpZuBpP1YXLu/GN/OcidBxpvIhLRiNO0i/e7/AAnmQsmGSF2q9ZX2ak3vU6WxPctR8XjoqklMFVIiSFq0QYdVZM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="d58594ab134c96692ad93ea4b45d0e5a07f47421" Description="" Url=""><as:assemblyIdentity name="BadaniaOperacyjne.exe" version="1.0.0.2" publicKeyToken="1348096ed6ac16e5" language="neutral" processorArchitecture="x86" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=PATRYK\Patryk</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" /><DigestValue>wJern8wrdKSTcSsrMtoDebqm7qE=</DigestValue></Reference></SignedInfo><SignatureValue>N3GbRhrCTDj+rSBgMuTwR9YSHT+k85KH8izjJaVRRuaNkH+ME73P/AiXyh6kd32w7XClfQT5RV/+dDyznLIjS9OVFsYoHbbnFKOWiDPmPyL3CZEN93c337U6Jn+SLSFpXU0cyQUs7QJQfcX7Ng6vD1F9bh1AZKKzgJyBhUWb++4=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>583jFzrWiNJoSyIjBsNg6+NbUiPX+g+xDtrKdAqFd99KLEMKs9NTSyXLuIm1Md8W2fP4skNTfALaj2JVQs4ZdpZuBpP1YXLu/GN/OcidBxpvIhLRiNO0i/e7/AAnmQsmGSF2q9ZX2ak3vU6WxPctR8XjoqklMFVIiSFq0QYdVZM=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBzTCCATagAwIBAgIQF9fj+Hev9ZJIXXwDs86ykzANBgkqhkiG9w0BAQUFADAlMSMwIQYDVQQDHhoAUABBAFQAUgBZAEsAXABQAGEAdAByAHkAazAeFw0xMzExMjgyMDA0MDRaFw0xNDExMjkwMjA0MDRaMCUxIzAhBgNVBAMeGgBQAEEAVABSAFkASwBcAFAAYQB0AHIAeQBrMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDnzeMXOtaI0mhLIiMGw2Dr41tSI9f6D7EO2sp0CoV330osQwqz01NLJcu4ibUx3xbZ8/iyQ1N8AtqPYlVCzhl2lm4Gk/Vhcu78Y385yJ0HGm8iEtGI07SL97v8ACeZCyYZIXar1lfZqTe9TpbE9y1HxeOiqSUwVUiJIWrRBh1VkwIDAQABMA0GCSqGSIb3DQEBBQUAA4GBAHl4DTntOdqX0KWim+2X3ZnXODVilpN/RdhkhpxnBnraqEMWA5NIGd3syRePiHELp1/Yt50jsl7QU/1FMrwgqz0W1jEf6zUEbGMUOG2jcswh+TUxCu9fo8a3OjD3fiqqC0ZMaEexhbCuvw/XOM6Crc8J44K5tyvOtNVxOfkOMddA</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

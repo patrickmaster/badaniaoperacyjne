@@ -5,25 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:problem="clr-namespace:BadaniaOperacyjne.Controls.Problem"
              mc:Ignorable="d" 
-             MinWidth="300" MinHeight="300"
+             MinWidth="300" MinHeight="300" ClipToBounds="True"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Row="1" Grid.Column="1">
-            <problem:XAxis/>
-        </Grid>
-        <Grid Grid.Row="0" Grid.Column="0">
-            <problem:YAxis/>
-        </Grid>
-        <Grid Grid.Row="0" Grid.Column="1">
-            <problem:Content />
-        </Grid>
+        <problem:Content 
+            x:Name="graphArea" 
+            InputMode="{Binding Path=InputMode,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type UserControl}},Mode=TwoWay}"
+            Radius="{Binding Path=Radius,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}">
+        </problem:Content>
+            <!--
+        <problem:ScaleLine 
+            Width="80" Height="10" BaseDistance="100"
+            Thickness="1" Scale="{Binding ElementName=graphArea, Path=Scale}" 
+            VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        -->
+        <problem:XAxis 
+            VerticalAlignment="Bottom" 
+            Translation="{Binding ElementName=graphArea,Path=Position.X}"
+            ScaleLineLength="{Binding Path=ScaleLineLength,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
+        <problem:YAxis 
+            HorizontalAlignment="Left" 
+            Translation="{Binding ElementName=graphArea,Path=Position.Y}"
+            ScaleLineLength="{Binding Path=ScaleLineLength,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
     </Grid>
 </UserControl>

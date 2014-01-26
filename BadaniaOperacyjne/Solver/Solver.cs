@@ -37,10 +37,17 @@ namespace BadaniaOperacyjne.Solver
             List<int> currentSolutionWithPetrolPlaces = new List<int>();
             if (input.FuelCapacity > 0)
             {
+                int counter = 0;
                 do
                 {
+                    if (counter > Math.Pow(input.NumPlaces, 2))
+                    {
+                        result.State = OutputState.NoSolution;
+                        return result;
+                    }
                     currentSolution = GetStartingSolution(input);
                     currentSolution.CopyListTo(currentSolutionWithPetrolPlaces);
+                    counter++;
                 }
                 while (!PutPetrolPlaces(input, currentSolutionWithPetrolPlaces));
             }
@@ -81,6 +88,7 @@ namespace BadaniaOperacyjne.Solver
                     else
                     {
                         Operation1(currentSolution, newSolution);
+                        newSolution.CopyListTo(newSolutionWithPetrolPlaces);
                     }
 
                     newCost = 0;
@@ -99,6 +107,7 @@ namespace BadaniaOperacyjne.Solver
                         currentCost = newCost;
 
                         newSolution.CopyListTo(currentSolution);
+                        newSolutionWithPetrolPlaces.CopyListTo(currentSolutionWithPetrolPlaces);
 
                         if (subtract <= 0)
                             block.ProgressionCount++;
@@ -126,7 +135,7 @@ namespace BadaniaOperacyjne.Solver
             }
 
             result.Solution = currentSolutionWithPetrolPlaces;
-            result.TotalCost = newCost;
+            result.TotalCost = currentCost;
 
             result.State = OutputState.Done;
             return result;
@@ -141,17 +150,27 @@ namespace BadaniaOperacyjne.Solver
             }
             count = problem.NumPlaces - problem.PetrolPlaces.Count + 1;
             List<int> solution = new List<int>(new int[count]);
+            List<int> packagePlaces = new List<int>();
 
             //solution[0] = 0;
             for (int i = 1, j = 1; i < problem.NumPlaces && j < count - 1; i++)
             {
                 if (problem.PetrolPlaces.IndexOf(i) == -1)
                 {
-                    solution[j] = i;
+                    //solution[j] = i;
                     j++;
+                    packagePlaces.Add(i);
                 }
             }
-            solution[count - 1] = 0;
+
+            //solution[count - 1] = 0;
+            int packagePlacesCount = packagePlaces.Count;
+            for (int i = 0; i < packagePlacesCount; i++)
+            {
+                int index = rand.Next(packagePlaces.Count - 1);
+                solution[i + 1] = packagePlaces[index];
+                packagePlaces.RemoveAt(index);
+            }
 
             return solution;
         }
@@ -231,7 +250,10 @@ namespace BadaniaOperacyjne.Solver
                 }
                 if (closestPetrol.IndexOfLastPlaceBeforeOutOfFuel != 0)
                 {
-                    solution.Insert(closestPetrol.IndexOfLastPlaceBeforeOutOfFuel + 1, closestPetrolPlace);
+                    if (input.PetrolPlaces.IndexOf(solution[closestPetrol.IndexOfLastPlaceBeforeOutOfFuel]) == -1)
+                        solution.Insert(closestPetrol.IndexOfLastPlaceBeforeOutOfFuel + 1, closestPetrolPlace);
+                    else
+                        return false;
                 }
                 else
                 {

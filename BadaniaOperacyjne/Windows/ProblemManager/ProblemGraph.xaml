@@ -2,8 +2,55 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:customproblem="clr-namespace:BadaniaOperacyjne.Controls.Problem;assembly=BadaniaOperacyjne.Controls"
-        Title="ProblemGraph" Height="300" Width="300">
+        xmlns:problemmanager="clr-namespace:BadaniaOperacyjne.Windows.ProblemManager"
+        Title="ProblemGraph" SizeToContent="WidthAndHeight">
+    <Window.CommandBindings>
+        <CommandBinding
+            Command="{x:Static problemmanager:ProblemGraph.SwitchToInputPlaceModeCommand}"
+            Executed="SwitchToInputPlaceModeCommand_Executed"
+            CanExecute="SwitchToInputPlaceCommand_CanExecute"/>
+        <CommandBinding
+            Command="{x:Static problemmanager:ProblemGraph.SwitchToInputPetrolPlaceModeCommand}"
+            Executed="SwitchToInputPetrolPlaceModeCommand_Executed"
+            CanExecute="SwitchToInputPetrolPlaceModeCommand_CanExecute"/>
+        <CommandBinding
+            Command="{x:Static problemmanager:ProblemGraph.SwitchToIdleModeCommand}"
+            Executed="SwitchToIdleModeCommand_Executed"
+            CanExecute="SwitchToIdleModeCommand_CanExecute"/>
+    </Window.CommandBindings>
     <Grid>
-        <customproblem:Graph2/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <customproblem:Graph2 
+                Grid.Column="0" x:Name="graph2"
+                InputMode="{Binding Path=InputMode,Mode=TwoWay}"/>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Content="Miasto" Command="{x:Static problemmanager:ProblemGraph.SwitchToInputPlaceModeCommand}" Margin="5"/>
+                <Button Grid.Row="1" Content="Paliwo" Command="{x:Static problemmanager:ProblemGraph.SwitchToInputPetrolPlaceModeCommand}" Margin="5"/>
+                <Button Grid.Row="2" Content="Idle" Command="{x:Static problemmanager:ProblemGraph.SwitchToIdleModeCommand}" Margin="5"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="130"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Rozwiąż" Height="25" Margin="5" Click="btnSolve_Click"/>
+            <Button Grid.Column="1" Content="Anuluj" Height="25" Margin="5" Click="btnCancel_Click"/>
+        </Grid>
     </Grid>
 </Window>
+
+    

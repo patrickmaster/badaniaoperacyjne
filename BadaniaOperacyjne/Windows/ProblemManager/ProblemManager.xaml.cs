@@ -70,6 +70,24 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
                 NumPlaces = ItemsList.Count;
             }
 
+            public double GetMaxDistance()
+            {
+                double max = 0;
+                try
+                {
+                    for (int i = 0; i < ItemsList.Count; i++)
+                    {
+                        for (int j = 0; j < ItemsList.Count; j++)
+                        {
+                            if (ItemsList[i][j] > max && ItemsList[i][j] != 0)
+                                max = ItemsList[i][j];
+                        }
+                    }
+                }
+                catch { }
+                return max;
+            }
+
             public int NumPlaces { get; set; }
 
             private List<List<double>> itemsList;
@@ -289,8 +307,20 @@ namespace BadaniaOperacyjne.Windows.ProblemManager
 
         private void btnSolve_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
-            Close();
+            double maxDistance = VM.GetMaxDistance();
+            if (VM.FuelCapacity > 0 && VM.PetrolPlaces.Count == 0)
+            {
+                MessageBox.Show("Wybrałeś opcję problemu z ograniczeniem paliwa, jednak nie ustawiłeś żadnej stacji benzynowej", "Uwaga");
+            }
+            else if (VM.FuelCapacity < maxDistance && VM.FuelCapacity > 0)
+            {
+                MessageBox.Show("Podana pojemność baku jest mniejsza niż maksymalny dystans pomiędzy miastami: " + maxDistance + " [jednostek]", "Uwaga");
+            }
+            else
+            {
+                DialogResult = true;
+                Close();
+            }
         }
 
         private bool TogglePlaceType(int number)
