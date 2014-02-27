@@ -18,6 +18,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1.2*"/>
@@ -78,14 +79,33 @@
                 </TextBox.Text>
             </TextBox>
             
-            <TextBlock Grid.Row="5" Grid.Column="0" Text="Typy sąsiedztwa" Margin="5" VerticalAlignment="Center"/>
+            <TextBlock 
+                Grid.Row="5" Grid.Column="0" 
+                Text="Typy sąsiedztwa" Margin="5" 
+                VerticalAlignment="Center"/>
             <ComboBox
                 Grid.Row="5" Grid.Column="1" Margin="5" Padding="2"
                 ItemsSource="{Binding OperationsList}" 
                 SelectedValue="{Binding Operation}"
                 SelectedValuePath="Value"
-                DisplayMemberPath="Key"
-                />
+                DisplayMemberPath="Key"/>
+            
+            <TextBlock 
+                Grid.Row="6" Grid.Column="0"
+                Text="Uśredniona ilość iteracji na blok" 
+                Margin="5"
+                VerticalAlignment="Center"/>
+            <TextBox
+                Grid.Row="6" Grid.Column="1"
+                Margin="5" Padding="2">
+                <TextBox.Text>
+                    <Binding Path="PointsPerIterationBlock" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <validation:RangeRule Minimum="20" Maximum="50"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </Grid>
         <Grid Grid.Row="1" Width="300" HorizontalAlignment="Right">
             <Grid.ColumnDefinitions>

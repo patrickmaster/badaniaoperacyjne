@@ -12,7 +12,7 @@ namespace BadaniaOperacyjne.DataType
     {
         public IterationBlock()
         {
-            Iterations = new List<Iteration>();
+            Values = new List<double>();
         }
 
         /// <summary>
@@ -26,9 +26,13 @@ namespace BadaniaOperacyjne.DataType
         public int RegressionCount { get; set; }
 
         /// <summary>
-        /// Lista iteracji w tym bloku
+        /// Uśredniona lista wartości w tym bloku
         /// </summary>
-        public List<Iteration> Iterations { get; set; }
+        public List<double> Values { get; set; }
+
+        public double Minimum { get; set; }
+
+        public double Maximum { get; set; }
 
         /// <summary>
         /// Temperatura średnia dla bloku iteracji

@@ -9,3 +9,5 @@ C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\De
 C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\obj\Debug\BadaniaOperacyjneTests.csprojResolveAssemblyReference.cache
 C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\obj\Debug\BadaniaOperacyjneTests.dll
 C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\obj\Debug\BadaniaOperacyjneTests.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\Debug\BadaniaOperacyjne.Controls.dll
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjneTests\bin\Debug\BadaniaOperacyjne.Controls.pdb

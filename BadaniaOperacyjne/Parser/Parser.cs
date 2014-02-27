@@ -116,7 +116,7 @@ namespace BadaniaOperacyjne.Parser
         {
             writer.Write(block.ProgressionCount);
             writer.Write(block.RegressionCount);
-            Write(writer, block.Iterations);
+            Write(writer, block.Values);
         }
 
         private static IterationBlock ReadIterationBlock(BinaryReader reader)
@@ -124,15 +124,15 @@ namespace BadaniaOperacyjne.Parser
             IterationBlock result = new IterationBlock();
             result.ProgressionCount = reader.ReadInt32();
             result.RegressionCount = reader.ReadInt32();
-            result.Iterations = ReadCollectionIteration(reader).ToList();
+            result.Values = ReadCollectionDouble(reader).ToList();
             return result;
         }
 
-        private static void Write(BinaryWriter writer, Iteration iteration)
-        {
-            writer.Write(iteration.IterationNumber);
-            writer.Write(iteration.Cost);
-        }
+        //private static void Write(BinaryWriter writer, Iteration iteration)
+        //{
+        //    writer.Write(iteration.IterationNumber);
+        //    writer.Write(iteration.Cost);
+        //}
 
         private static Iteration ReadIteration(BinaryReader reader)
         {
@@ -154,8 +154,8 @@ namespace BadaniaOperacyjne.Parser
                     writer.Write((int)(object)item);
                 else if (typeof(T) == typeof(double))
                     writer.Write((double)(object)item);
-                else if (typeof(T) == typeof(Iteration))
-                    Write(writer, (Iteration)(object)item);
+                //else if (typeof(T) == typeof(Iteration))
+                //    Write(writer, (Iteration)(object)item);
                 else if (typeof(T) == typeof(IterationBlock))
                     Write(writer, (IterationBlock)(object)item);
                 else
@@ -178,20 +178,20 @@ namespace BadaniaOperacyjne.Parser
             return result;
         }
 
-        private static IEnumerable<Iteration> ReadCollectionIteration(BinaryReader reader, int toRead = 0)
-        {
-            int count;
-            if (toRead == 0)
-                count = reader.ReadInt32();
-            else
-                count = toRead;
-            List<Iteration> result = new List<Iteration>();
-            for (int i = 0; i < count; i++)
-            {
-                result.Add(ReadIteration(reader));
-            }
-            return result;
-        }
+        //private static IEnumerable<Iteration> ReadCollectionIteration(BinaryReader reader, int toRead = 0)
+        //{
+        //    int count;
+        //    if (toRead == 0)
+        //        count = reader.ReadInt32();
+        //    else
+        //        count = toRead;
+        //    List<Iteration> result = new List<Iteration>();
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        result.Add(ReadIteration(reader));
+        //    }
+        //    return result;
+        //}
 
         private static IEnumerable<int> ReadCollectionInt(BinaryReader reader, int toRead = 0)
         {

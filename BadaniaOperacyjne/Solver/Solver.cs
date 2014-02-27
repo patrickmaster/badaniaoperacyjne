@@ -19,11 +19,27 @@ namespace BadaniaOperacyjne.Solver
             public double FuelLeft { get; set; }
         }
 
+        delegate void Operation(List<int> oldSolution, List<int> newSolution);
+
         public OutputData Solve(InputData input, Settings settings, BackgroundWorker worker)
         {
             // TODO
             // Gdy problem zadany bez stacji (fuel cap = 0), to coś sie psuje
             OutputData result = new OutputData();
+
+            Operation operation = null;
+
+            switch (settings.Operation)
+            {
+                case OperationType.Operation1:
+                    operation = Operation1;
+                    break;
+                case OperationType.Operation2:
+                    operation = Operation2;
+                    break;
+            }
+
+            List<double> iterationBlockCosts = new List<double>(); 
 
             double currentCost = 0;
             double newCost = 0;
@@ -71,23 +87,24 @@ namespace BadaniaOperacyjne.Solver
             while (temperature > settings.EndingTemperature)
             {
                 IterationBlock block = new IterationBlock();
+                double 
+                    minCost = currentCost, 
+                    maxCost = currentCost;
 
                 for (int i = 0; i < numIterations; i++)
                 {
-                    Iteration iteration = new Iteration(i);
-
                     if (input.FuelCapacity > 0)
                     {
                         do
                         {
-                            Operation1(currentSolution, newSolution);
+                            operation(currentSolution, newSolution);
                             newSolution.CopyListTo(newSolutionWithPetrolPlaces);
                         }
                         while (!PutPetrolPlaces(input, newSolutionWithPetrolPlaces));
                     }
                     else
                     {
-                        Operation1(currentSolution, newSolution);
+                        operation(currentSolution, newSolution);
                         newSolution.CopyListTo(newSolutionWithPetrolPlaces);
                     }
 
@@ -106,6 +123,11 @@ namespace BadaniaOperacyjne.Solver
                     {
                         currentCost = newCost;
 
+                        if (currentCost > maxCost)
+                            maxCost = currentCost;
+                        else if (currentCost < minCost)
+                            minCost = currentCost;
+
                         newSolution.CopyListTo(currentSolution);
                         newSolutionWithPetrolPlaces.CopyListTo(currentSolutionWithPetrolPlaces);
 
@@ -115,9 +137,13 @@ namespace BadaniaOperacyjne.Solver
                             block.RegressionCount++;
                     }
 
-                    iteration.Cost = currentCost;
-
-                    block.Iterations.Add(iteration);
+                    //block.Values.Add(currentCost);
+                    iterationBlockCosts.Add(currentCost);
+                    if (iterationBlockCosts.Count == (int)(numIterations / settings.PointsPerIterationBlock))
+                    {
+                        block.Values.Add(iterationBlockCosts.ReduceCollectionToValue(x => x.Average()));
+                        iterationBlockCosts.Clear();
+                    }
 
                     if (worker.CancellationPending == true)
                     {
@@ -129,6 +155,13 @@ namespace BadaniaOperacyjne.Solver
                 temperature *= settings.CoolingCoefficient;
                 block.CurrentTemperature = temperature;
                 numIterations = (int)((double)numIterations * settings.NumIterationsMultiplier);
+                //block.Values = iterationBlockCosts.ReduceCollection(
+                //    settings.PointsPerIterationBlock,
+                //    x => x.Average()).ToList();
+                block.Minimum = minCost;
+                block.Maximum = maxCost;
+
+                iterationBlockCosts.Clear();
 
                 worker.ReportProgress(0, block);
                 result.Iterations.Add(block);
@@ -175,15 +208,32 @@ namespace BadaniaOperacyjne.Solver
             return solution;
         }
 
-        public static void Operation1(List<int> currentSolution, List<int> newSolution)
+        static void Operation1(List<int> currentSolution, List<int> newSolution)
         {
             //newSolution.CopyTo(currentSolution, 0);
-            newSolution.CopyListTo(currentSolution);
+            //newSolution.CopyListTo(currentSolution);
+            currentSolution.CopyListTo(newSolution);
             int pos1 = rand.Next(1, newSolution.Count - 1);
             int pos2 = rand.Next(1, newSolution.Count - 1);
             int temp = newSolution[pos1];
             newSolution[pos1] = newSolution[pos2];
             newSolution[pos2] = temp;
+        }
+
+        static void Operation2(List<int> currentSolution, List<int> newSolution)
+        {
+            currentSolution.CopyListTo(newSolution);
+            // length <nalezy do> [1, count - 1]
+            // uwaga: next losuje z wyłączeniem max wartosci
+            // = 9
+            int count = newSolution.Count - 2;
+            // [1, 8]
+            int length = rand.Next(count - 1) + 1;
+            // [0, 1] 
+            int start = rand.Next(count - length + 1);
+            // [-1, 9 - 1 - 8]
+            int slide = rand.Next(-start, count - start - length + 1);
+            newSolution.MoveBlock(start + 1, slide, length);
         }
 
         public static ClosestPetrol CheckIfPossible(InputData problem, List<int> solution)

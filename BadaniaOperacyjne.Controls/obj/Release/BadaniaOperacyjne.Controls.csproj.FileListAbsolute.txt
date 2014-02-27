@@ -8,3 +8,4 @@ C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\ob
 C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Release\BadaniaOperacyjne.Controls.g.resources
 C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Release\BadaniaOperacyjne.Controls.dll
 C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Release\BadaniaOperacyjne.Controls.pdb
+C:\Users\Patryk\Documents\GitHub\badaniaoperacyjne\BadaniaOperacyjne.Controls\obj\Release\BadaniaOperacyjne.Controls.csprojResolveAssemblyReference.cache

@@ -20,6 +20,7 @@ using BadaniaOperacyjne.SettingsManager;
 using BadaniaOperacyjne.Classes;
 using Microsoft.Win32;
 using BadaniaOperacyjne.Parser;
+using BadaniaOperacyjne.Extensions;
 
 namespace BadaniaOperacyjne.Windows
 {
@@ -386,18 +387,22 @@ namespace BadaniaOperacyjne.Windows
             OxyPlot.Series.StairStepSeries progressionSeries = VM.GraphPlotModel.Series[1] as OxyPlot.Series.StairStepSeries;
             OxyPlot.Series.StairStepSeries regressionSeries = VM.GraphPlotModel.Series[2] as OxyPlot.Series.StairStepSeries;
 
-            List<double> costs = iterationBlock.Iterations.Select(x => x.Cost).ToList();
-            double currentMin = costs.Min();
-            double currentMax = costs.Max();
-            if (currentMin < VM.MinCost || VM.MinCost == 0)
-                VM.MinCost = currentMin;
-            if (currentMax > VM.MaxCost)
-                VM.MaxCost = currentMax;
+            //List<double> costs = iterationBlock.Values.Select(x => x.Cost).ToList();
+            //double currentMin = costs.Min();
+            //double currentMax = costs.Max();
+            if (iterationBlock.Minimum < VM.MinCost || VM.MinCost == 0)
+                VM.MinCost = iterationBlock.Minimum;
+            if (iterationBlock.Maximum> VM.MaxCost)
+                VM.MaxCost = iterationBlock.Maximum;
 
-            List<double> reducedCosts = ReduceCollection(costs, DISPLAYED_COSTS_PER_BLOCK, x => x.Average()).ToList();
-            for(int i = 0; i < reducedCosts.Count; i++)
+            //List<double> reducedCosts = costs.ReduceCollection(DISPLAYED_COSTS_PER_BLOCK, x => x.Average()).ToList();
+            for(int i = 0; i < iterationBlock.Values.Count; i++)
             {
-                costSeries.Points.Add(new ScatterPoint(/*iteration.IterationNumber*/ (double)count + (double)i/(double)DISPLAYED_COSTS_PER_BLOCK, reducedCosts[i], LINES_THICKNESS));
+                costSeries.Points.Add(new ScatterPoint(
+                    /*iteration.IterationNumber*/
+                    (double)count + (double)i / (double)iterationBlock.Values.Count,
+                    iterationBlock.Values[i],
+                    LINES_THICKNESS));
             }
             progressionSeries.Points.Add(new ScatterPoint(count , iterationBlock.ProgressionCount));
             regressionSeries.Points.Add(new ScatterPoint(count , iterationBlock.RegressionCount));
@@ -411,29 +416,29 @@ namespace BadaniaOperacyjne.Windows
             count++;
         }
 
-        private IEnumerable<double> ReduceCollection(IEnumerable<double> collection, int desiredCount, Func<IEnumerable<double>,double> reducer)
-        {
-            List<double> result = new List<double>();
-            int elementsPerBlock = collection.Count() / desiredCount;
-            int count = 0;
-            List<double> container = new List<double>();
+        //private IEnumerable<double> ReduceCollection(IEnumerable<double> collection, int desiredCount, Func<IEnumerable<double>,double> reducer)
+        //{
+        //    List<double> result = new List<double>();
+        //    int elementsPerBlock = collection.Count() / desiredCount;
+        //    int count = 0;
+        //    List<double> container = new List<double>();
 
-            while (count < collection.Count())
-            {
-                //double sum = 0;
-                int i = 0;
-                for (i = 0; i < elementsPerBlock && count < collection.Count(); i++, count++)
-                {
-                    //sum += collection.ElementAt(count)
-                    container.Add(collection.ElementAt(count));
-                }
+        //    while (count < collection.Count())
+        //    {
+        //        //double sum = 0;
+        //        int i = 0;
+        //        for (i = 0; i < elementsPerBlock && count < collection.Count(); i++, count++)
+        //        {
+        //            //sum += collection.ElementAt(count)
+        //            container.Add(collection.ElementAt(count));
+        //        }
 
-                //result.Add(sum / (double)i);
-                result.Add(reducer(container));
-                container.Clear();
-            }
-            return result;
-        }
+        //        //result.Add(sum / (double)i);
+        //        result.Add(reducer(container));
+        //        container.Clear();
+        //    }
+        //    return result;
+        //}
 
         private void PlotOutput(OutputData outputData)
         {
@@ -445,12 +450,16 @@ namespace BadaniaOperacyjne.Windows
                 OxyPlot.Series.StairStepSeries progressionSeries = VM.GraphPlotModel.Series[1] as OxyPlot.Series.StairStepSeries;
                 OxyPlot.Series.StairStepSeries regressionSeries = VM.GraphPlotModel.Series[2] as OxyPlot.Series.StairStepSeries;
 
-                List<double> costs = iterationBlock.Iterations.Select(x => x.Cost).ToList();
-                List<double> reducedCosts = ReduceCollection(costs, DISPLAYED_COSTS_PER_BLOCK, x => x.Average()).ToList();
+                //List<double> costs = iterationBlock.Values.Select(x => x.Cost).ToList();
+                //List<double> reducedCosts = ReduceCollection(costs, DISPLAYED_COSTS_PER_BLOCK, x => x.Average()).ToList();
 
-                for (int i = 0; i < reducedCosts.Count; i++)
+                for (int i = 0; i < iterationBlock.Values.Count; i++)
                 {
-                    costSeries.Points.Add(new ScatterPoint(/*iteration.IterationNumber*/ (double)count + (double)i / (double)DISPLAYED_COSTS_PER_BLOCK, reducedCosts[i], LINES_THICKNESS));
+                    costSeries.Points.Add(new ScatterPoint(
+                        /*iteration.IterationNumber*/ 
+                        (double)count + (double)i / (double)iterationBlock.Values.Count, 
+                        iterationBlock.Values[i], 
+                        LINES_THICKNESS));
                 }
                 progressionSeries.Points.Add(new ScatterPoint(count, iterationBlock.ProgressionCount));
                 regressionSeries.Points.Add(new ScatterPoint(count, iterationBlock.RegressionCount));

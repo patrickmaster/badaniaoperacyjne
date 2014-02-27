@@ -26,10 +26,8 @@ namespace BadaniaOperacyjne.Windows
             public LocalViewModel()
             {
                 OperationsList = new Dictionary<string, OperationType>();
-                OperationsList.Add("operacja1", OperationType.Operation1);
-                OperationsList.Add("operacja2", OperationType.Operation2);
-                OperationsList.Add("operacja3", OperationType.Operation3);
-                OperationsList.Add("operacja4", OperationType.Operation4);
+                OperationsList.Add("Operacja 1", OperationType.Operation1);
+                OperationsList.Add("Operacja 2", OperationType.Operation2);
             }
 
             protected double startingTemperature;
@@ -119,6 +117,20 @@ namespace BadaniaOperacyjne.Windows
                     }
                 }
             }
+
+            private int pointsPerIterationBlock;
+            public int PointsPerIterationBlock
+            {
+                get { return pointsPerIterationBlock; }
+                set
+                {
+                    if (value != pointsPerIterationBlock)
+                    {
+                        pointsPerIterationBlock = value;
+                        NotifyPropertyChanged("PointsPerIterationBlock");
+                    }
+                }
+            }
         }
 
         public LocalViewModel VM { get; set; }
@@ -156,6 +168,7 @@ namespace BadaniaOperacyjne.Windows
             VM.NumIterationsMultiplier = settings.NumIterationsMultiplier;
             VM.CoolingCoefficient = settings.CoolingCoefficient;
             VM.Operation = settings.Operation;
+            VM.PointsPerIterationBlock = settings.PointsPerIterationBlock;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
@@ -168,6 +181,7 @@ namespace BadaniaOperacyjne.Windows
             settings.NumIterationsMultiplier = VM.NumIterationsMultiplier;
             settings.CoolingCoefficient = VM.CoolingCoefficient;
             settings.Operation = VM.Operation;
+            settings.PointsPerIterationBlock = VM.PointsPerIterationBlock;
 
             settingsManager.SetSettings(settings);
             DialogResult = true;

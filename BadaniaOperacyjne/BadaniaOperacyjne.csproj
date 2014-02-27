@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -105,6 +105,7 @@
     <Compile Include="DataType\Iteration.cs" />
     <Compile Include="DataType\IterationBlock.cs" />
     <Compile Include="DataType\Settings.cs" />
+    <Compile Include="Extensions\IEnumerable.cs" />
     <Compile Include="Extensions\List.cs" />
     <Compile Include="Extensions\Point.cs" />
     <Compile Include="Parser\Parser.cs" />

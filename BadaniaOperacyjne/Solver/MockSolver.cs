@@ -14,36 +14,36 @@ namespace BadaniaOperacyjne.Solver
             Random rand = new Random();
             OutputData result = new OutputData();
 
-            for (int i = 0; i < 200; i++)
-            {
-                IterationBlock block = new IterationBlock
-                {
-                    ProgressionCount = rand.Next(10),
-                    RegressionCount = rand.Next(10)
-                };
+            //for (int i = 0; i < 200; i++)
+            //{
+            //    IterationBlock block = new IterationBlock
+            //    {
+            //        ProgressionCount = rand.Next(10),
+            //        RegressionCount = rand.Next(10)
+            //    };
 
-                for (int j = 0; j < 10; j++)
-                {
-                    block.Iterations.Add(new Iteration(j)
-                    {
-                        Cost = Math.Sin(i * (double)j * 10)
-                    });
-                }
+            //    for (int j = 0; j < 10; j++)
+            //    {
+            //        block.Values.Add(new Iteration(j)
+            //        {
+            //            Cost = Math.Sin(i * (double)j * 10)
+            //        });
+            //    }
 
-                worker.ReportProgress(0, block);
-                result.Iterations.Add(block);
+            //    worker.ReportProgress(0, block);
+            //    result.Iterations.Add(block);
 
-                if (worker.CancellationPending == true)
-                {
-                    return null;
-                }
+            //    if (worker.CancellationPending == true)
+            //    {
+            //        return null;
+            //    }
 
-                System.Threading.Thread.Sleep(50);
-            }
+            //    System.Threading.Thread.Sleep(50);
+            //}
 
 
-            result.TotalCost = 10;
-            result.Solution = new List<int> { 4, 5, 6, 3, 2, 1, 0, 6, 5, 4, 3, 3, 4, 234, 234, 32, 34, 4, 43, 4 };
+            //result.TotalCost = 10;
+            //result.Solution = new List<int> { 4, 5, 6, 3, 2, 1, 0, 6, 5, 4, 3, 3, 4, 234, 234, 32, 34, 4, 43, 4 };
 
             return result;
         }

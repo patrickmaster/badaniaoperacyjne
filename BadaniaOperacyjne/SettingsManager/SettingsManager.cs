@@ -18,7 +18,8 @@ namespace BadaniaOperacyjne.SettingsManager
             NumIterations = 2000,
             NumIterationsMultiplier = 1.5,
             CoolingCoefficient = 0.85,
-            Operation = OperationType.Operation1
+            Operation = OperationType.Operation1,
+            PointsPerIterationBlock = 20
         };
 
         private static Settings currentSettings = null;
@@ -39,6 +40,7 @@ namespace BadaniaOperacyjne.SettingsManager
                 writer.Write(settings.NumIterationsMultiplier);
                 writer.Write(settings.CoolingCoefficient);
                 writer.Write((int)settings.Operation);
+                writer.Write(settings.PointsPerIterationBlock);
 
                 currentSettings = settings;
             }
@@ -62,22 +64,21 @@ namespace BadaniaOperacyjne.SettingsManager
 
             Settings settings = null;
 
-            using (FileStream stream = new FileStream(filePath, FileMode.Open))
+            try
             {
-                using (BinaryReader reader = new BinaryReader(stream))
+                using (FileStream stream = new FileStream(filePath, FileMode.Open))
                 {
-                    try
+                    using (BinaryReader reader = new BinaryReader(stream))
                     {
                         settings = ReadSettings(reader);
                         currentSettings = settings;
                     }
-                    catch
-                    {
-                        return defaultSettings;
-                    }
                 }
             }
-
+            catch
+            {
+                return defaultSettings;
+            }
             return settings;
         }
 
@@ -90,6 +91,7 @@ namespace BadaniaOperacyjne.SettingsManager
             settings.NumIterationsMultiplier = reader.ReadDouble();
             settings.CoolingCoefficient = reader.ReadDouble();
             settings.Operation = (OperationType)reader.ReadInt32();
+            settings.PointsPerIterationBlock = reader.ReadInt32();
             return settings;
         }
     }

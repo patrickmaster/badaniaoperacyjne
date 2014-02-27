@@ -31,13 +31,16 @@ namespace BadaniaOperacyjne.DataType
         /// Wykorzystywana w algorytmie operacja
         /// </summary>
         public OperationType Operation { get; set; }
+
+        /// <summary>
+        /// Liczba punktów na blok iteracji dla wykresu
+        /// </summary>
+        public int PointsPerIterationBlock { get; set; }
     }
 
     public enum OperationType
     {
         Operation1,
-        Operation2,
-        Operation3,
-        Operation4
+        Operation2
     }
 }
